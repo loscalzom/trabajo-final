@@ -20,7 +20,7 @@ const navigate = useNavigate()
        
         event.preventDefault()
         try {
-            const res = await fetch(ENVIROMENT.API_URL + "/api/login/login", {
+            const res = await fetch(ENVIROMENT.API_URL + "/api/auth/login", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
