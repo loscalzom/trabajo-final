@@ -17,6 +17,7 @@ const InviteMember = () => {
       const response = await fetch(ENVIROMENT.API_URL + `/api/workspace/${workspace_id}/invite`, {
         method: 'POST',
         headers: {
+            ...getAuthenticatedHeaders(),
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('token')}`, 
         },
