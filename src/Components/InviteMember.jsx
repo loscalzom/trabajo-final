@@ -19,7 +19,7 @@ const InviteMember = () => {
         headers: {
             ...getAuthenticatedHeaders(),
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`, 
+          Authorization: `Bearer ${sessionStorageStorage.getItem('token')}`, 
         },
         body: JSON.stringify({ email }),
       });

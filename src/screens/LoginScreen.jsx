@@ -30,9 +30,14 @@ const navigate = useNavigate()
             })
             const data = await res.json()
             
-            login(data.data.access_token)
-
-            navigate("/home")
+            if (data.data && data.data.access_token) {
+            
+                sessionStorage.setItem('token', data.data.access_token)
+                login(data.data.access_token) 
+                navigate("/home") 
+            } else {
+                console.error("Token no encontrado en la respuesta")
+            }
          
            
 
