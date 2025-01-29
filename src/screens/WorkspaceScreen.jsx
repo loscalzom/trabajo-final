@@ -4,6 +4,7 @@ import { useFetch } from '../hooks/useFetch'
 import ENVIROMENT from '../utils/constants/enviroment'
 import { getAuthenticatedHeaders } from '../fetching/customHeaders'
 import useForm from '../hooks/useForm'
+import InviteMember from '../Components/InviteMember'
 
 const WorkspaceScreen = () => {
     const {workspace_id, channel_id} = useParams()
@@ -31,6 +32,7 @@ const WorkspaceScreen = () => {
                 : <h2>Aun no has seleccionado ningun canal</h2>
             }
         </div>
+        <InviteMember/>
     </div>
   )
 }
