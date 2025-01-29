@@ -13,6 +13,8 @@ const InviteMember = () => {
   const handleInvite = async (event) => {
     event.preventDefault()
 
+    console.log("Token enviado:", sessionStorage.getItem('access_token'))
+
     try {
       const response = await fetch(ENVIROMENT.API_URL + `/api/workspace/${workspace_id}/invite`, {
         method: 'POST',
