@@ -40,6 +40,14 @@ const LoginScreen = () => {
                 console.log("User data:", userData)
                 console.log("Workspace data:", workspaceData)
 
+                if (userData && workspaceData) {
+                    sessionStorage.setItem('user', JSON.stringify(userData));
+                    sessionStorage.setItem('workspace', JSON.stringify(workspaceData));
+                } else {
+                    console.error("Error: userData o workspaceData son undefined");
+                }
+
+
                 sessionStorage.setItem('token', data.data.access_token)
                 sessionStorage.setItem('user', JSON.stringify(userData))
                 sessionStorage.setItem('workspace', JSON.stringify(workspaceData))
