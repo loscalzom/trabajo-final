@@ -40,12 +40,16 @@ export const AuthContextProvider = ({ children }) => {
     if (storedWorkspace) setWorkspace(storedWorkspace);
   }, []);
 
+
+ 
   const login = (access_token, userData, workspaceData) => {
+    console.log("Datos del workspace antes de llamar a login:", workspaceData)
+
     sessionStorage.setItem("access_token", access_token);
     sessionStorage.setItem("user", JSON.stringify(userData));
     sessionStorage.setItem("workspace", JSON.stringify(workspaceData));
 
-    console.log("Workspace guardado en sessionStorage:", workspaceData)
+    console.log("Workspace guardado en sessionStorage:", sessionStorage.getItem("workspace"))
 
     setIsAuthenticatedState(true);
     setUser(userData);
