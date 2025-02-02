@@ -13,22 +13,7 @@ const WorkspaceScreen = () => {
     console.log("Channel ID:", channel_id)
 
 
-    useEffect(() => {
-        const fetchWorkspaceDetails = async () => {
-            try {
-                const response = await fetch(ENVIROMENT.API_URL + `/api/workspace/${workspace_id}`, {
-                    method: 'GET',
-                    headers: getAuthenticatedHeaders()
-                })
-                const data = await response.json()
-                setWorkspaceName(data.data.name)  // Asumiendo que el nombre del workspace está en `data.data.name`
-            } catch (error) {
-                console.error("Error al obtener los detalles del workspace", error)
-            }
-        }
-
-        fetchWorkspaceDetails()
-    }, [workspace_id])
+    
 
     const {
         data: channels_data,
