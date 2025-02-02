@@ -24,6 +24,10 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   const login = (access_token, userData, workspaceData) => {
+
+    console.log("User Data antes de guardar:", userData);
+    console.log("Workspace Data antes de guardar:", workspaceData)
+
     sessionStorage.setItem("access_token", access_token);
     sessionStorage.setItem("user", JSON.stringify(userData));
     sessionStorage.setItem("workspace", JSON.stringify(workspaceData));
