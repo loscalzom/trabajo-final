@@ -13,8 +13,6 @@ const WorkspaceScreen = () => {
     console.log("Channel ID:", channel_id)
 
 
-    
-
     const {
         data: channels_data,
         error: channels_error,
