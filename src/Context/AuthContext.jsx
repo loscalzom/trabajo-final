@@ -45,6 +45,8 @@ export const AuthContextProvider = ({ children }) => {
     sessionStorage.setItem("user", JSON.stringify(userData));
     sessionStorage.setItem("workspace", JSON.stringify(workspaceData));
 
+    console.log("Workspace guardado en sessionStorage:", workspaceData)
+
     setIsAuthenticatedState(true);
     setUser(userData);
     setWorkspace(workspaceData);
