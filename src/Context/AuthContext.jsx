@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"
+/* import { createContext, useEffect, useState } from "react"
 
 //Crear el contexto
 export const AuthContext = createContext()
@@ -13,12 +13,7 @@ export const AuthContextProvider = ({children}) =>{
         sessionStorage.setItem('access_token', access_token)
         setIsAuthenticatedState(true)
     }
-   /*  useEffect(() =>{
-        const auth_token = sessionStorage.getItem('access_token')
-        if(auth_token) {
-            setIsAuthenticatedState(true)
-        }
-    }, []) */
+  
 
     return (
         <AuthContext.Provider value={{isAuthenticatedState, login}}>
@@ -26,9 +21,41 @@ export const AuthContextProvider = ({children}) =>{
         </AuthContext.Provider>
     )
 }
+ */
 
+import { createContext, useEffect, useState } from "react";
 
+export const AuthContext = createContext();
 
+export const AuthContextProvider = ({ children }) => {
+  const [isAuthenticatedState, setIsAuthenticatedState] = useState(Boolean(sessionStorage.getItem("access_token")));
+  const [user, setUser] = useState(null);
+  const [workspace, setWorkspace] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(sessionStorage.getItem("user"));
+    const storedWorkspace = JSON.parse(sessionStorage.getItem("workspace"));
+
+    if (storedUser) setUser(storedUser);
+    if (storedWorkspace) setWorkspace(storedWorkspace);
+  }, []);
+
+  const login = (access_token, userData, workspaceData) => {
+    sessionStorage.setItem("access_token", access_token);
+    sessionStorage.setItem("user", JSON.stringify(userData));
+    sessionStorage.setItem("workspace", JSON.stringify(workspaceData));
+
+    setIsAuthenticatedState(true);
+    setUser(userData);
+    setWorkspace(workspaceData);
+  };
+
+  return (
+    <AuthContext.Provider value={{ isAuthenticatedState, login, user, workspace }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
 
 
