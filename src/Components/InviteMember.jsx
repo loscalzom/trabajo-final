@@ -61,7 +61,7 @@ const InviteMember = () => {
 };
 
 export default InviteMember */
-import React, { useState, useContext } from "react";
+import React, {useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import ENVIROMENT from "../utils/constants/enviroment";
