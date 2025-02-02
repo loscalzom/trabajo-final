@@ -7,9 +7,9 @@ import { AuthContext } from '../Context/AuthContext'
 const LoginScreen = () => {
 
 
-const {login,isAuthenticatedState} = useContext(AuthContext)
+    const { login, isAuthenticatedState } = useContext(AuthContext)
 
-const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const { form_state, handleChangeInput } = useForm({ email: "", password: "" })
 
@@ -17,7 +17,7 @@ const navigate = useNavigate()
     if (url.get("verified")) { alert("Cuenta verificada") }
 
     const handleSubmitForm = async (event) => {
-       
+
         event.preventDefault()
         try {
             const res = await fetch(ENVIROMENT.API_URL + "/api/auth/login", {
@@ -32,25 +32,29 @@ const navigate = useNavigate()
 
             console.log("Datos recibidos de la API:", data)
 
-            
+
             if (data.data && data.data.access_token) {
                 const userData = data.data.user_info;
                 const workspaceData = data.data.workspace;
 
                 console.log("User data:", userData)
                 console.log("Workspace data:", workspaceData)
-            
+
                 sessionStorage.setItem('token', data.data.access_token)
                 sessionStorage.setItem('user', JSON.stringify(userData))
                 sessionStorage.setItem('workspace', JSON.stringify(workspaceData))
 
-                login(data.data.access_token) 
-                navigate("/home") 
+                console.log('Token guardado:', sessionStorage.getItem('token'));
+                console.log('User guardado:', sessionStorage.getItem('user'));
+                console.log('Workspace guardado:', sessionStorage.getItem('workspace'))
+
+                login(data.data.access_token)
+                navigate("/home")
             } else {
                 console.error("Token no encontrado en la respuesta")
             }
-         
-           
+
+
 
         } catch (error) {
             console.error("Error al loguear", error)
@@ -95,7 +99,7 @@ const navigate = useNavigate()
                 </div>
                 <span>Aún no tienes cuenta? <Link to="/register">Regístrate</Link></span>
                 <br />
-                <Link to= "/forgot-password">Olvidé mi contraseña</Link>
+                <Link to="/forgot-password">Olvidé mi contraseña</Link>
             </form>
 
         </div>
