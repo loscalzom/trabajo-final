@@ -11,6 +11,10 @@ export const AuthContextProvider = ({ children }) => {
     const storedUser = JSON.parse(sessionStorage.getItem("user"));
     const storedWorkspace = sessionStorage.getItem("workspace");
 
+    console.log('User recuperado de sessionStorage:', storedUser);
+    console.log('Workspace recuperado de sessionStorage:', storedWorkspace)
+
+
     // Verifica si el valor de workspace existe antes de intentar parsearlo
     if (storedUser) setUser(storedUser);
     if (storedWorkspace) {

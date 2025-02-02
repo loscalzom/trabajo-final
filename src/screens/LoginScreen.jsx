@@ -39,6 +39,7 @@ const LoginScreen = () => {
 
                 console.log("User data:", userData)
                 console.log("Workspace data:", workspaceData)
+                console.log("Datos completos de la respuesta:", data.data)
 
                 if (userData && workspaceData) {
                     sessionStorage.setItem('user', JSON.stringify(userData));
@@ -49,14 +50,13 @@ const LoginScreen = () => {
 
 
                 sessionStorage.setItem('token', data.data.access_token)
-                sessionStorage.setItem('user', JSON.stringify(userData))
-                sessionStorage.setItem('workspace', JSON.stringify(workspaceData))
+                
 
                 console.log('Token guardado:', sessionStorage.getItem('token'));
                 console.log('User guardado:', sessionStorage.getItem('user'));
                 console.log('Workspace guardado:', sessionStorage.getItem('workspace'))
 
-                login(data.data.access_token)
+                login(data.data.access_token, userData, workspaceData)
                 navigate("/home")
             } else {
                 console.error("Token no encontrado en la respuesta")
