@@ -34,11 +34,16 @@ const navigate = useNavigate()
 
             
             if (data.data && data.data.access_token) {
+                const userData = data.data.user_info;
+                const workspaceData = data.data.workspace;
 
                 console.log("User data:", data.data.userData)
             console.log("Workspace data:", data.data.workspaceData)
             
                 sessionStorage.setItem('token', data.data.access_token)
+                sessionStorage.setItem('user', JSON.stringify(userData))
+                sessionStorage.setItem('workspace', JSON.stringify(workspaceData))
+
                 login(data.data.access_token) 
                 navigate("/home") 
             } else {
