@@ -37,8 +37,8 @@ const navigate = useNavigate()
                 const userData = data.data.user_info;
                 const workspaceData = data.data.workspace;
 
-                console.log("User data:", data.data.userData)
-            console.log("Workspace data:", data.data.workspaceData)
+                console.log("User data:", userData)
+                console.log("Workspace data:", workspaceData)
             
                 sessionStorage.setItem('token', data.data.access_token)
                 sessionStorage.setItem('user', JSON.stringify(userData))
