@@ -29,8 +29,14 @@ const navigate = useNavigate()
                 body: JSON.stringify(form_state)
             })
             const data = await res.json()
+
+            console.log("Datos recibidos de la API:", data)
+
             
             if (data.data && data.data.access_token) {
+
+                console.log("User data:", data.data.userData)
+            console.log("Workspace data:", data.data.workspaceData)
             
                 sessionStorage.setItem('token', data.data.access_token)
                 login(data.data.access_token) 
