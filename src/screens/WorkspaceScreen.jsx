@@ -9,6 +9,8 @@ import InviteMember from '../Components/InviteMember'
 const WorkspaceScreen = () => {
     const { workspace_id, channel_id } = useParams()
 
+    console.log("Workspace ID:", workspace_id)
+    console.log("Channel ID:", channel_id)
 
     const {
         data: channels_data,
