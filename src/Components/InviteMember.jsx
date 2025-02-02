@@ -74,6 +74,34 @@ const InviteMember = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
+
+  useEffect(() => {
+    // Obtener los detalles del workspace correspondiente al workspace_id
+    const fetchWorkspace = async () => {
+      try {
+        const response = await fetch(`${ENVIROMENT.API_URL}/api/workspace/${workspace_id}`, {
+          method: "GET",
+          headers: getAuthenticatedHeaders(),
+        });
+        const data = await response.json();
+        if (data.ok) {
+          setWorkspace(data.data); // Actualizar el estado del workspace
+        } else {
+          setError(data.message);
+        }
+      } catch (err) {
+        setError("Hubo un error al obtener el workspace");
+      }
+    };
+
+    fetchWorkspace();
+  }, [workspace_id]);
+
+
+
+
+
+
   const handleInvite = async (event) => {
     event.preventDefault();
 
