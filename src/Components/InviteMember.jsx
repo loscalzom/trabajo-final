@@ -130,7 +130,7 @@ const InviteMember = () => {
 
   return (
     <div>
-      <h2>{workspace ? `Workspace: ${workspace.name}` : "Cargando workspace..."}</h2>
+      <h2>{currentWorkspace ? `Workspace: ${currentWorkspace.name}` : "Cargando workspace..."}</h2>
       <h2>Invitar miembro al workspace</h2>
       <form onSubmit={handleInvite}>
         <label>
