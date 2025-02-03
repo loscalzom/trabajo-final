@@ -39,11 +39,19 @@ const WorkspaceScreen = () => {
 
   return (
     <div>
-      {channels_loading ? <h2>Cargando</h2> : <ChannelsList channel_list={channels_data.data.channels} workspace_id={workspace_id} onWorkspaceClick={handleWorkspaceClick} />}
-      <div>
-        {channel_id ? <Channel workspace_id={workspace_id} channel_id={channel_id} /> : <h2>Aun no has seleccionado ningun canal</h2>}
-      </div>
+      {/* Mostrar el nombre del workspace */}
+      <h2>Workspace: {workspace_id}</h2>
+
+      {/* Invitar miembro al workspace */}
       <InviteMember />
+
+      {/* Mostrar el formulario para enviar mensajes */}
+      <div>
+        {channel_id ? <Channel workspace_id={workspace_id} channel_id={channel_id} /> : <h2>Aún no has seleccionado ningún canal</h2>}
+      </div>
+
+      {/* Mostrar la lista de canales */}
+      {channels_loading ? <h2>Cargando canales...</h2> : <ChannelsList channel_list={channels_data.data.channels} workspace_id={workspace_id} onWorkspaceClick={handleWorkspaceClick} />}
     </div>
   );
 };
@@ -91,7 +99,7 @@ const Channel = ({ workspace_id, channel_id }) => {
 
   return (
     <div>
-      {channel_loading ? <h2>Cargando canal</h2> : channel_data.data.messages.map(message => {
+      {channel_loading ? <h2>Cargando canal...</h2> : channel_data.data.messages.map(message => {
         return (
           <div key={message._id}>
             <h4>Autor: {message.sender.username}</h4>
