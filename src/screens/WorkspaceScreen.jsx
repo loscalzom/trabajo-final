@@ -24,6 +24,7 @@ const WorkspaceScreen = () => {
     });
 
     const handleWorkspaceClick = async (workspace_id) => {
+        console.log("Workspace ID clicked:", workspace_id)
         try {
             const response = await fetch(`${ENVIROMENT.API_URL}/api/workspace/${workspace_id}`, {
                 method: "GET",
