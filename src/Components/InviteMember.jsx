@@ -86,6 +86,8 @@ const InviteMember = () => {
         });
         const data = await response.json();
         if (data.ok) {
+          console.log("Workspace data:", data.data);
+
           setCurrentWorkspace(data.data); // Actualizar el estado del workspace
         } else {
           setError(data.message);
