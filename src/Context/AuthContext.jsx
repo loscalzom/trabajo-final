@@ -9,34 +9,22 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const storedUser = JSON.parse(sessionStorage.getItem("user"));
-    const storedWorkspace = sessionStorage.getItem("workspace");
+    const storedWorkspace = JSON.parse(sessionStorage.getItem("workspace")); // Asegurar que se parsee como JSON
 
     console.log('User recuperado de sessionStorage:', storedUser);
-    console.log('Workspace recuperado de sessionStorage:', storedWorkspace)
+    console.log('Workspace recuperado de sessionStorage:', storedWorkspace);
 
-
-    // Verifica si el valor de workspace existe antes de intentar parsearlo
     if (storedUser) setUser(storedUser);
-    if (storedWorkspace) {
-      try {
-        const parsedWorkspace = JSON.parse(storedWorkspace);
-        setWorkspace(parsedWorkspace);
-      } catch (error) {
-        console.error("Error al parsear el workspace:", error);
-      }
-    }
+    if (storedWorkspace) setWorkspace(storedWorkspace); // Directamente asignar el objeto parseado
   }, []);
 
   const login = (access_token, userData, workspaceData) => {
-
     console.log("User Data antes de guardar:", userData);
-    console.log("Workspace Data antes de guardar:", workspaceData)
+    console.log("Workspace Data antes de guardar:", workspaceData);
 
     sessionStorage.setItem("access_token", access_token);
     sessionStorage.setItem("user", JSON.stringify(userData));
     sessionStorage.setItem("workspace", JSON.stringify(workspaceData));
-
-    console.log("Workspace guardado en sessionStorage:", workspaceData);
 
     setIsAuthenticatedState(true);
     setUser(userData);
@@ -44,25 +32,8 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticatedState, login, user, workspace,setWorkspace }}>
+    <AuthContext.Provider value={{ isAuthenticatedState, login, user, workspace, setWorkspace }}>
       {children}
     </AuthContext.Provider>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
