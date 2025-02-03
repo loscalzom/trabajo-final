@@ -43,6 +43,9 @@ const WorkspaceScreen = () => {
 }
 
 const ChannelsList = ({ channel_list, workspace_id }) => {
+    if (!channel_list || channel_list.length === 0) {
+        return <p>No hay canales disponibles</p>;
+    }
 
     return (
         <div style={{ display: 'flex', flexDirection: "column", gap: '8px' }}>
