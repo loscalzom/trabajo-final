@@ -5,7 +5,7 @@ import ENVIROMENT from "../utils/constants/enviroment";
 import { getAuthenticatedHeaders } from "../fetching/customHeaders";
 
 const InviteMember = () => {
-  const { workspace } = useContext(AuthContext);
+  const { workspace, setWorkspace } = useContext(AuthContext);
   const { workspace_id } = useParams();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -13,7 +13,6 @@ const InviteMember = () => {
   const [currentWorkspace, setCurrentWorkspace] = useState(workspace);
 
   useEffect(() => {
-    // Obtener los detalles del workspace correspondiente al workspace_id
     const fetchWorkspace = async () => { 
       try {
         const response = await fetch(`${ENVIROMENT.API_URL}/api/workspace/${workspace_id}`, {
@@ -24,7 +23,8 @@ const InviteMember = () => {
         if (data.ok) {
           console.log("Workspace data:", data.data);
 
-          setCurrentWorkspace(data.data); // Actualizar el estado del workspace
+          setCurrentWorkspace(data.data); // Actualizar el estado local del workspace
+          setWorkspace(data.data); // Actualizar el estado del workspace en el contexto
           sessionStorage.setItem("workspace", JSON.stringify(data.data)); // Actualizar sessionStorage
         } else {
           setError(data.message);
@@ -35,7 +35,7 @@ const InviteMember = () => {
     };
 
     fetchWorkspace();
-  }, [workspace_id]);
+  }, [workspace_id, setWorkspace]);
 
   const handleInvite = async (event) => {
     event.preventDefault();
