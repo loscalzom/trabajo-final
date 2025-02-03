@@ -73,6 +73,7 @@ const InviteMember = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
+  const [currentWorkspace, setCurrentWorkspace] = useState(workspace)
 
 
   useEffect(() => {
@@ -85,7 +86,7 @@ const InviteMember = () => {
         });
         const data = await response.json();
         if (data.ok) {
-          setWorkspace(data.data); // Actualizar el estado del workspace
+          setCurrentWorkspace(data.data); // Actualizar el estado del workspace
         } else {
           setError(data.message);
         }
