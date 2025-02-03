@@ -99,4 +99,12 @@ const Channel = ({ workspace_id, channel_id }) => {
           </div>
         );
       })}
-      <form onSubmit={handle
+      <form onSubmit={handleSubmitNewMessage}>
+        <input placeholder='Enviar mensaje' type='text' name='content' onChange={handleChangeInput} value={form_state.content} />
+        <button type='submit'>Enviar</button>
+      </form>
+    </div>
+  );
+};
+
+export default WorkspaceScreen;
