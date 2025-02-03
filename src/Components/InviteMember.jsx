@@ -1,67 +1,4 @@
-/* import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { useFetch } from '../hooks/useFetch'
-import ENVIROMENT from '../utils/constants/enviroment';
-import { getAuthenticatedHeaders } from '../fetching/customHeaders'
-
-const InviteMember = () => {
-  const { workspace_id } = useParams()
-  const [email, setEmail] = useState('')
-  const [error, setError] = useState('')
-  const [message, setMessage] = useState('')
-
-  const handleInvite = async (event) => {
-    event.preventDefault()
-
-    console.log("Token enviado:", sessionStorage.getItem('access_token'))
-
-    try {
-      const response = await fetch(ENVIROMENT.API_URL + `/api/workspace/${workspace_id}/invite`, {
-        method: 'POST',
-        headers: {
-            ...getAuthenticatedHeaders(),
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${sessionStorage.getItem('token')}`, 
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json()
-
-      if (data.ok) {
-        setMessage('Usuario invitado correctamente')
-      } else {
-        setError(data.message);
-      }
-    } catch (err) {
-      setError('Hubo un error al invitar al usuario')
-    }
-  };
-
-  return (
-    <div>
-      <h2>Invitar miembro al workspace</h2>
-      <form onSubmit={handleInvite}>
-        <label>
-          Correo electrónico:
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Invitar</button>
-      </form>
-
-      {message && <p>{message}</p>}
-      {error && <p>{error}</p>}
-    </div>
-  );
-};
-
-export default InviteMember */
-import React, {useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import ENVIROMENT from "../utils/constants/enviroment";
@@ -73,12 +10,11 @@ const InviteMember = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const [currentWorkspace, setCurrentWorkspace] = useState(workspace)
-
+  const [currentWorkspace, setCurrentWorkspace] = useState(workspace);
 
   useEffect(() => {
     // Obtener los detalles del workspace correspondiente al workspace_id
-    const fetchWorkspace = async () => {
+    const fetchWorkspace = async () => { 
       try {
         const response = await fetch(`${ENVIROMENT.API_URL}/api/workspace/${workspace_id}`, {
           method: "GET",
@@ -89,6 +25,7 @@ const InviteMember = () => {
           console.log("Workspace data:", data.data);
 
           setCurrentWorkspace(data.data); // Actualizar el estado del workspace
+          sessionStorage.setItem("workspace", JSON.stringify(data.data)); // Actualizar sessionStorage
         } else {
           setError(data.message);
         }
@@ -99,11 +36,6 @@ const InviteMember = () => {
 
     fetchWorkspace();
   }, [workspace_id]);
-
-
-
-
-
 
   const handleInvite = async (event) => {
     event.preventDefault();
