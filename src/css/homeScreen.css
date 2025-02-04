@@ -19,6 +19,32 @@ h1 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+h2 {
+    text-align: center;
+    color: #791717;
+    background-color: beige;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    text-align: center;
+    color: #791717;
+    background-color: beige;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.create-group {
+    text-align: center;
+    color: #791717;
+    background-color: beige;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 /* Contenedor de los espacios de trabajo */
 .workspace-container {
     background-color: beige;

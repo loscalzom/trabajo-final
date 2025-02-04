@@ -19,7 +19,7 @@ const HomeScreen = () => {
     <div>
         <h1>Bienvenido al Chat de Amigos</h1>
         <div>
-            <h2>Tus espacios de trabajo</h2>
+            <h2>Tus grupos de amigos</h2>
             <div>
                 {
                 workspace_loading
@@ -30,18 +30,18 @@ const HomeScreen = () => {
                         return (
                             <div key={workspace._id}>
                                 <h3>{workspace.name}</h3>
-                                <Link to={`/workspace/${workspace._id}`}>Ir al workspace</Link>
+                                <Link to={`/workspace/${workspace._id}`}>Ir al grupo</Link>
                             </div>
                         )
                     })
-                    : <h3>Aun no creaste ningun espacio de trabajo!</h3>
+                    : <h3>Aun no creaste ningún grupo!</h3>
                 )
                 }
             </div>
         </div>
         <div>
-            <span>Aun no tienes espacios de trabajo?</span>
-            <Link to='/workspace/new'>Crear un espacio de trabajo</Link>
+            <span className='create-group'>Quieres crear un grupo?</span>
+            <Link to='/workspace/new'>Crear un grupo de amigos</Link>
         </div>
     </div>
   )
