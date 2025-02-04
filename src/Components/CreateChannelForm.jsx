@@ -16,7 +16,10 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
                 body: JSON.stringify({ name: channelName })
             });
 
+            console.log("Response:", response)
+
             const data = await response.json();
+            console.log("Data:", data);
             if (data.ok) {
                 onChannelCreated(data.data.new_channel); // Actualizar lista de canales
                 setChannelName(""); // Limpiar input
