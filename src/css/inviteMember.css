@@ -84,6 +84,12 @@ p {
 }
 @media (max-width: 550px) {
     h2 {
-        font-size: 0.9rem; /* 60% menos que 1.5rem */
+        font-size: 0.9rem; 
+    }
+}
+
+@media (max-width: 375px) {
+    h2 {
+        font-size: 0.7rem; 
     }
 }
