@@ -16,9 +16,9 @@ const HomeScreen = () => {
     })
    console.log(workspace_response)
   return (
-    <div>
+    <div className="home-container">
         <h1>Bienvenido al Chat de Amigos</h1>
-        <div>
+        <div className='workspace-container'>
             <h2>Tus grupos de amigos</h2>
             <div>
                 {
@@ -28,7 +28,7 @@ const HomeScreen = () => {
                     workspace_response.data.workspaces.length ?  
                     workspace_response.data.workspaces.map(workspace => {
                         return (
-                            <div key={workspace._id}>
+                            <div key={workspace._id} className='workspace-item'>
                                 <h3>{workspace.name}</h3>
                                 <Link to={`/workspace/${workspace._id}`}>Ir al grupo</Link>
                             </div>
@@ -39,7 +39,7 @@ const HomeScreen = () => {
                 }
             </div>
         </div>
-        <div>
+        <div className='workspace-container'>
             <span className='create-group'>Quieres crear un grupo?</span>
             <Link to='/workspace/new'>Crear un grupo de amigos</Link>
         </div>
