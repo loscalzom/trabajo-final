@@ -19,7 +19,7 @@
     width: 90%;
     max-width: 500px;
     text-align: center;
-    max-height: 140px; /* Altura máxima reducida */
+    max-height: 50 vh; /* Altura máxima reducida */
     overflow-y: auto; /* Permite scroll solo en este contenedor */
 }
 
@@ -41,7 +41,7 @@
     background-color: #da4834;
     padding: 6px 10px; /* Reduce la altura del botón */
     border-radius: 5px;
-    margin-top: 6px;
+    margin-top: 10px;
     font-size: 0.85rem;
 }
 
