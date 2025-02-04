@@ -42,6 +42,7 @@
     padding: 6px 10px; /* Reduce la altura del botón */
     border-radius: 5px;
     margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 0.85rem;
 }
 
@@ -57,9 +58,7 @@ h1 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.workspace-container create-group {
-    margin-top: 15px;
-}
+
 
 
 /* Asegúrate de que h2, h3 y span tengan el mismo color */
