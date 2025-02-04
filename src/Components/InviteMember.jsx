@@ -65,20 +65,32 @@ const InviteMember = () => {
 
   return (
     <div className="invite-member-container">
-      <h2>{currentWorkspace ? `Grupo de amigos: ${currentWorkspace.name}` : "Cargando grupo..."}</h2>
-      <h2>Invitar amigo al grupo</h2>
-      <form onSubmit={handleInvite}>
-        <label>
-          Correo electrónico:
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
-        </label>
-        <button type="submit">Invitar</button>
-      </form>
+        {/* Columna izquierda */}
+        <div className="left-column">
+            <h2>Temas disponibles</h2>
+            <div className="channel-list">
+                {currentWorkspace && currentWorkspace.channels?.map(channel => (
+                    <div key={channel.id}>{channel.name}</div>
+                ))}
+            </div>
+        </div>
+        
+        {/* Columna derecha */}
+        <div className="right-column">
+            <h2>Invitar amigo al grupo</h2>
+            <form onSubmit={handleInvite}>
+                <label>
+                    Correo electrónico:
+                    <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
+                </label>
+                <button type="submit">Invitar</button>
+            </form>
 
-      {message && <p className="message-success">{message}</p>}
-      {error && <p className="message-error" >{error}</p>}
+            {message && <p className="message-success">{message}</p>}
+            {error && <p className="message-error">{error}</p>}
+        </div>
     </div>
-  );
+);
 };
 
 export default InviteMember;

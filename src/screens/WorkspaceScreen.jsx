@@ -58,11 +58,15 @@ const WorkspaceScreen = () => {
         <div className="workspace-screen-container">
             <InviteMember />
 
-            <div>
-                {channel_id ? <Channel workspace_id={workspace_id} channel_id={channel_id} /> : <h2>Aún no has seleccionado ningún tema</h2>}
-            </div>
+            <div className="workspace-content">
+                <div>
+                    {channel_id ? <Channel workspace_id={workspace_id} channel_id={channel_id} /> : <h2>Aún no has seleccionado ningún tema</h2>}
+                </div>
 
-            {channels_loading ? <h2>Cargando temas...</h2> : <ChannelsList channel_list={channels} workspace_id={workspace_id} onWorkspaceClick={handleWorkspaceClick} onChannelCreated={handleNewChannel} />}
+                <div>
+                    {channels_loading ? <h2>Cargando temas...</h2> : <ChannelsList channel_list={channels} workspace_id={workspace_id} onWorkspaceClick={handleWorkspaceClick} onChannelCreated={handleNewChannel} />}
+                </div>
+            </div>
         </div>
     );
 };
