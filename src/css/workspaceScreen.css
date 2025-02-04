@@ -71,13 +71,13 @@ button {
     cursor: pointer;
     margin: 10px 0;
     width: 200px;
-    margin-left: auto;
+    margin-left: 10px;
     margin-right: auto;
 }
 
 button:hover {
     background-color: #b52d1e;
-  margin-left: 10px;
+ 
 }
 
 /* Estilos para los mensajes de cada canal */
