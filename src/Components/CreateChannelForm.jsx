@@ -39,7 +39,7 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
                 throw new Error(`Error: ${response.status} ${response.statusText} - ${responseText}`);
             }
 
-            const data = await response.json();
+            const data = JSON.parse(responseText);
             console.log("Data:", data);
             if (data.ok) {
                 onChannelCreated(data.data.new_channel); // Actualizar lista de canales
