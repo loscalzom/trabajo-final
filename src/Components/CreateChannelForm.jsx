@@ -8,8 +8,13 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
     const handleCreateChannel = async () => {
         if (!channelName.trim()) return alert("El nombre del canal no puede estar vacío");
 
+        const apiUrl = `${process.env.REACT_APP_API_URL}/api/channel/${workspace_id}`;
+        console.log("URL construida:", apiUrl);
+
         try {
-            const response = await fetch(`${ENVIROMENT.API_URL}/api/channel/${workspace_id}`, {
+            const response = await fetch(`${ENVIROMENT.API_URL}/api/channel/${workspace_id}`,
+                
+                {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
