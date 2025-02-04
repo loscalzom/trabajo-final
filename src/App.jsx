@@ -33,7 +33,7 @@ const App = () => {
         <Route path='/reset-password' element={<ResetPasswordScreen />} />
         <Route element={<ProtectedRoute />} >
         <Route path="/home" element={<HomeScreen />}/>
-        <Route path="/workspace/new" element={<CreateWorksapaceScreen />} />
+        <Route path="/workspace/new" element={<CreateWorkspaceScreen />} />
         <Route path="/workspace/:workspace_id" element={<WorkspaceScreen />} />
         <Route path="/workspace/:workspace_id/:channel_id" element={<WorkspaceScreen />} />
        
