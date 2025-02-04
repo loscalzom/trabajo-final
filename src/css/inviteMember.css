@@ -10,7 +10,7 @@
     max-width: 400px;
     margin: 20px auto;
     text-align: center;
-    height: 50%; /* Reduce la altura a la mitad */
+    height: 45vh; /* Reduce la altura a la mitad */
     min-height: 250px; /* Añadir un mínimo para que no se haga demasiado pequeño en pantallas pequeñas */
     display: flex;
     flex-direction: column;
