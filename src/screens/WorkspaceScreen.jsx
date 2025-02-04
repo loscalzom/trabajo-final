@@ -79,7 +79,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
     return (
         <div style={{ display: 'flex', flexDirection: "column", gap: '8px' }}>
             <h2>Temas disponibles</h2>
-            <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
+           
             {channel_list.map(channel => (
                 <div key={channel._id}>
                     <Link
@@ -88,6 +88,8 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
                     >
                         #{channel.name}
                     </Link>
+
+                     <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
                 </div>
             ))}
         </div>
