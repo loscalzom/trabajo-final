@@ -57,6 +57,11 @@ h1 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.workspace-container create-group {
+    margin-top: 15px;
+}
+
+
 /* Asegúrate de que h2, h3 y span tengan el mismo color */
 h2, h3, span {
     color: #791717; /* Color igual al h1 */

@@ -39,7 +39,7 @@ const HomeScreen = () => {
                 }
             </div>
         </div>
-        <div className='workspace-container'>
+        <div className='workspace-container create-group' >
             <span className='create-group'>Quieres crear un grupo?</span>
             <Link to='/workspace/new'>Crear un grupo de amigos</Link>
         </div>
