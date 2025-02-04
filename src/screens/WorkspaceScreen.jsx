@@ -39,8 +39,7 @@ const WorkspaceScreen = () => {
 
   return (
     <div>
-      {/* Mostrar el nombre del workspace */}
-      <h2>Workspace: {workspace_id}</h2>
+     
 
       {/* Invitar miembro al workspace */}
       <InviteMember />

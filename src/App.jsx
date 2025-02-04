@@ -10,6 +10,7 @@ import ProtectedRoute from "./Components/ProtectedRoute"
 import HomeScreen from "./screens/HomeScreen"
 import CreateWorksapaceScreen from "./screens/CreateWorksapaceScreen"
 import WorkspaceScreen from "./screens/WorkspaceScreen"
+import "./css/global.css"
 
 
 

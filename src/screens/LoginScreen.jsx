@@ -3,6 +3,7 @@ import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroment'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
+import '../css/loginScreen.css'
 
 const LoginScreen = () => {
 
@@ -88,14 +89,14 @@ const LoginScreen = () => {
 
 
     return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmitForm}>
+        <div className='login-container'>
+            <h1>CHAT DE AMIGOS</h1>
+            <form onSubmit={handleSubmitForm} className='login-form'>
                 <div>
                     <label htmlFor="email">Ingresa tu email:</label>
                     <input name='email' id='email' placeholder='joedoe@gmail' value={form_state.email} onChange={handleChangeInput} />
 
-                    {errores.email?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
+                    {errores.email?.map((error, index) => <p key={index} className='error'>{error}</p>)}
                 </div>
 
                 <div>
