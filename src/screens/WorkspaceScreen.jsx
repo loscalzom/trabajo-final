@@ -77,7 +77,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
     }
 
     return (
-        <div style={{ display: 'flex', flexDirection: "column", gap: '8px' }}>
+        <div style={{ display: 'flex', flexDirection: "row", gap: '8px' }}>
             <h2>Temas disponibles</h2>
 
             {channel_list.map(channel => (

@@ -61,7 +61,7 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
                 onChange={(e) => setChannelName(e.target.value)}
                 placeholder="Nuevo canal"
             />
-            <button onClick={handleCreateChannel}>Crear Canal</button>
+            <button onClick={handleCreateChannel}>Crear tema</button>
         </div>
     );
 };
