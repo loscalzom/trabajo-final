@@ -6,6 +6,8 @@ import { getAuthenticatedHeaders } from '../fetching/customHeaders';
 import useForm from '../hooks/useForm';
 import InviteMember from '../Components/InviteMember';
 import { AuthContext } from '../Context/AuthContext';
+import './css/workspaceScreen.css'
+
 
 const WorkspaceScreen = () => {
     const { workspace_id, channel_id } = useParams();
@@ -38,7 +40,7 @@ const WorkspaceScreen = () => {
     };
 
     return (
-        <div>
+        <div className="workspace-screen-container"  >
 
 
             {/* Invitar miembro al workspace */}

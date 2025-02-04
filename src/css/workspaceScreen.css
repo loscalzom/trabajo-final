@@ -1,0 +1,95 @@
+.workspace-screen-container {
+    background-color: beige;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Títulos dentro del componente WorkspaceScreen */
+h2 {
+    color: #791717;
+    background-color: beige;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para la lista de canales */
+.channel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.channel-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.channel-item a {
+    text-decoration: none;
+    color: #791717;
+    font-size: 1.2rem;
+}
+
+.channel-item a:hover {
+    color: #da4834;
+}
+
+/* Estilo para el formulario de mensajes */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #da4834;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
+    background-color: #b52d1e;
+}
+
+/* Estilos para los mensajes de cada canal */
+.channel-message {
+    margin-top: 10px;
+}
+
+h4 {
+    color: #791717;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+p {
+    color: #444;
+    font-size: 1rem;
+}

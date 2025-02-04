@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import ENVIROMENT from "../utils/constants/enviroment";
 import { getAuthenticatedHeaders } from "../fetching/customHeaders";
+import './css/inviteMember.css'
 
 const InviteMember = () => {
   const { workspace, setWorkspace } = useContext(AuthContext);
@@ -63,7 +64,7 @@ const InviteMember = () => {
   };
 
   return (
-    <div>
+    <div className="invite-member-container">
       <h2>{currentWorkspace ? `Grupo de amigos: ${currentWorkspace.name}` : "Cargando grupo..."}</h2>
       <h2>Invitar amigo al grupo</h2>
       <form onSubmit={handleInvite}>
@@ -74,8 +75,8 @@ const InviteMember = () => {
         <button type="submit">Invitar</button>
       </form>
 
-      {message && <p>{message}</p>}
-      {error && <p>{error}</p>}
+      {message && <p className="message-success">{message}</p>}
+      {error && <p className="message-error" >{error}</p>}
     </div>
   );
 };
