@@ -17,6 +17,7 @@ h2 {
     border-radius: 5px;
     padding: 10px 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
 }
 
 /* Estilo para la lista de canales */
@@ -95,7 +96,7 @@ p {
     font-size: 1rem;
 }
 
-/* División en dos columnas */
+/* Contenedor para la división en dos columnas */
 .workspace-content {
     display: flex;
     flex-wrap: wrap;
@@ -106,6 +107,15 @@ p {
 .workspace-content > div {
     flex: 1;
     min-width: 280px; /* Para asegurar que las columnas se ajusten bien en pantallas pequeñas */
+}
+
+/* Mantener el contenedor invite-members-container visible */
+.invite-members-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 @media (max-width: 768px) {
