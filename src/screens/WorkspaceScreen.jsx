@@ -28,7 +28,7 @@ const WorkspaceScreen = () => {
         }
     }, [channels_data]);
 
-    
+
 
     const handleWorkspaceClick = async (workspace_id) => {
         console.log("Workspace ID clicked:", workspace_id);
@@ -79,17 +79,18 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
     return (
         <div style={{ display: 'flex', flexDirection: "column", gap: '8px' }}>
             <h2>Temas disponibles</h2>
-           
+
             {channel_list.map(channel => (
                 <div key={channel._id}>
-                    <Link
+                    <div><Link
                         to={`/workspace/${workspace_id}/${channel._id}`}
                         onClick={() => onWorkspaceClick(workspace_id)}
                     >
                         #{channel.name}
                     </Link>
-
-                     <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
+                    </div>
+                    <div>
+                        <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} /></div>
                 </div>
             ))}
         </div>
