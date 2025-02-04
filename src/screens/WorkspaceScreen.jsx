@@ -64,10 +64,11 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick }) => {
 
     return (
         <div style={{ display: 'flex', flexDirection: "column", gap: '8px' }}>
+            <h2>Temas disponibles</h2>
             {channel_list.map(channel => {
                 return (
                     <div>
-                        <h2>Temas disponibles</h2>
+
                         <Link
                             key={channel._id}
                             to={`/workspace/${workspace_id}/${channel._id}`}
