@@ -8,7 +8,9 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
     const handleCreateChannel = async () => {
         console.log("Se ha llamado a handleCreateChannel");
 
-        if (!channelName.trim()) return alert("El nombre del canal no puede estar vacío");
+        if (!channelName.trim()) {
+            return alert("El nombre del canal no puede estar vacío");
+        }
 
         console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
         const apiUrl = `${import.meta.env.VITE_API_URL}/api/channel/${workspace_id}`;
@@ -20,7 +22,7 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
                 throw new Error("No se encontró el token de autenticación en localStorage.");
             }
 
-            const response = await fetch(`${ENVIROMENT.API_URL}/api/channel/${workspace_id}`, {
+            const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -30,10 +32,11 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
             });
 
             console.log("Estado de la respuesta:", response.status);
-            console.log("Texto de la respuesta:", await response.text());
+            const responseText = await response.text();
+            console.log("Texto de la respuesta:", responseText);
 
             if (!response.ok) {
-                throw new Error(`Error: ${response.status} ${response.statusText}`);
+                throw new Error(`Error: ${response.status} ${response.statusText} - ${responseText}`);
             }
 
             const data = await response.json();
@@ -42,7 +45,7 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
                 onChannelCreated(data.data.new_channel); // Actualizar lista de canales
                 setChannelName(""); // Limpiar input
             } else {
-                alert("Error al crear el canal");
+                alert("Error al crear el canal: " + data.message);
             }
         } catch (error) {
             console.error("Error al crear el canal:", error);
