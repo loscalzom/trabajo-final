@@ -6,7 +6,7 @@ import { getAuthenticatedHeaders } from '../fetching/customHeaders';
 import useForm from '../hooks/useForm';
 import InviteMember from '../Components/InviteMember';
 import { AuthContext } from '../Context/AuthContext';
-import './css/workspaceScreen.css'
+import './../css/workspaceScreen.css'
 
 
 const WorkspaceScreen = () => {
