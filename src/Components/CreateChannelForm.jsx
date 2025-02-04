@@ -10,6 +10,7 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
 
         if (!channelName.trim()) return alert("El nombre del canal no puede estar vacío");
 
+        console.log("VITE_API_URL:", import.meta.env.VITE_API_URL)
        const apiUrl = `${import.meta.env.VITE_API_URL}/api/channel/${workspace_id}`
         console.log("URL construida:", apiUrl);
 
