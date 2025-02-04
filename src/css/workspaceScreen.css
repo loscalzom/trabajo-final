@@ -77,6 +77,7 @@ button {
 
 button:hover {
     background-color: #b52d1e;
+  margin-left: 10px;
 }
 
 /* Estilos para los mensajes de cada canal */
