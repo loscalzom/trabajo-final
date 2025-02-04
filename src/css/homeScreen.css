@@ -1,84 +1,48 @@
-/* Contenedor principal similar al login */
+/* Contenedor principal */
 .home-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alinea el contenido hacia arriba */
+    justify-content: flex-start; /* Alinea los elementos arriba */
     align-items: center;
-    height: 100vh; /* Mantiene altura completa */
+    height: 100vh; /* Ocupa toda la pantalla */
     padding: 10px;
     box-sizing: border-box;
-    overflow-y: auto; /* Permite desplazamiento si es necesario */
-}
-
-/* Título principal */
-h1 {
-    text-align: center;
-    color: #791717;
-    background-color: beige;
-    border-radius: 5px;
-    padding: 8px 16px; /* Reduce el padding */
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    font-size: 1.5rem; /* Hace el texto más pequeño */
-    margin-bottom: 10px; /* Agrega separación con el resto */
-}
-
-h2, h3 {
-    text-align: center;
-    color: #791717;
-    background-color: beige;
-    border-radius: 5px;
-    padding: 6px 14px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    font-size: 1.2rem; /* Reduce el tamaño de la fuente */
-}
-
-.create-group {
-    text-align: center;
-    color: #791717;
-    background-color: beige;
-    border-radius: 5px;
-    padding: 6px 14px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    font-size: 1rem;
+    overflow: hidden; /* Evita el scroll en toda la página */
 }
 
 /* Contenedor de los espacios de trabajo */
 .workspace-container {
     background-color: beige;
-    padding: 15px; /* Reduce el padding */
+    padding: 10px; /* Reduce el padding */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Reduce el ancho */
-    max-width: 500px; /* Limita el tamaño */
-    margin-top: 15px; /* Reduce la separación */
+    width: 90%;
+    max-width: 500px;
     text-align: center;
+    max-height: 250px; /* Altura máxima reducida */
+    overflow-y: auto; /* Permite scroll solo en este contenedor */
 }
 
-/* Estilo para cada workspace */
+/* Ajustar la altura de cada workspace */
 .workspace-item {
     background-color: white;
-    padding: 10px; /* Reduce padding */
+    padding: 8px; /* Reduce el padding */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 8px 0; /* Reduce separación */
+    margin: 6px 0;
+    font-size: 0.9rem; /* Hace el texto más pequeño */
 }
 
-.workspace-item h3 {
-    color: #791717;
-    margin-bottom: 3px; /* Reduce margen */
-    font-size: 1.1rem;
-}
-
-/* Botones y enlaces */
+/* Ajuste de los botones */
 .workspace-container a {
     display: inline-block;
     text-decoration: none;
     color: white;
     background-color: #da4834;
-    padding: 8px 12px; /* Reduce el tamaño */
+    padding: 6px 10px; /* Reduce la altura del botón */
     border-radius: 5px;
-    margin-top: 8px;
-    font-size: 0.9rem;
+    margin-top: 6px;
+    font-size: 0.85rem;
 }
 
 .workspace-container a:hover {
