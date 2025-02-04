@@ -32,15 +32,15 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
             });
 
             console.log("Estado de la respuesta:", response.status);
-            const responseText = await response.text();
-            console.log("Texto de la respuesta:", responseText);
 
             if (!response.ok) {
+                const responseText = await response.text();
                 throw new Error(`Error: ${response.status} ${response.statusText} - ${responseText}`);
             }
 
-            const data = JSON.parse(responseText);
+            const data = await response.json();
             console.log("Data:", data);
+
             if (data.ok) {
                 onChannelCreated(data.data.new_channel); // Actualizar lista de canales
                 setChannelName(""); // Limpiar input
