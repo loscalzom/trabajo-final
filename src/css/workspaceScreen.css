@@ -71,7 +71,7 @@ button {
     cursor: pointer;
     margin: 10px 0;
     width: 200px;
-    margin-left: 10px;
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -79,6 +79,9 @@ button:hover {
     background-color: #b52d1e;
  
 }
+
+.button-create-channel {
+    margin-left: 10px ;}
 
 /* Estilos para los mensajes de cada canal */
 .channel-message {
