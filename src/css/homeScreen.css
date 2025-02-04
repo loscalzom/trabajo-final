@@ -19,7 +19,7 @@
     width: 90%;
     max-width: 500px;
     text-align: center;
-    max-height: 50 vh; /* Altura máxima reducida */
+    max-height: 500px; /* Altura máxima reducida */
     overflow-y: auto; /* Permite scroll solo en este contenedor */
 }
 
