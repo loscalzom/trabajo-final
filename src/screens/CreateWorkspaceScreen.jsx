@@ -24,7 +24,7 @@ const CreateWorkspaceScreen = () => {
     }
   return (
     <div>
-        <h1>Crear un nuevo espacio de trabajo</h1>
+        <h1>Crear un nuevo grupo</h1>
         <form onSubmit={handleCreateWorkspace}>
             <div>
                 <label htmlFor="name"></label>
