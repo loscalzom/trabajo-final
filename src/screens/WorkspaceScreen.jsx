@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import ENVIROMENT from '../utils/constants/enviroment';
@@ -6,12 +6,13 @@ import { getAuthenticatedHeaders } from '../fetching/customHeaders';
 import useForm from '../hooks/useForm';
 import InviteMember from '../Components/InviteMember';
 import { AuthContext } from '../Context/AuthContext';
-import '../css/workspaceScreen.css'
-
+import CreateChannelForm from '../Components/CreateChannelForm';
+import '../css/workspaceScreen.css';
 
 const WorkspaceScreen = () => {
     const { workspace_id, channel_id } = useParams();
     const { setWorkspace } = useContext(AuthContext);
+    const [channels, setChannels] = useState([]);
 
     console.log("Workspace ID:", workspace_id);
     console.log("Channel ID:", channel_id);
@@ -20,6 +21,12 @@ const WorkspaceScreen = () => {
         method: "GET",
         headers: getAuthenticatedHeaders()
     });
+
+    useEffect(() => {
+        if (channels_data?.data?.channels) {
+            setChannels(channels_data.data.channels);
+        }
+    }, [channels_data]);
 
     const handleWorkspaceClick = async (workspace_id) => {
         console.log("Workspace ID clicked:", workspace_id);
@@ -39,25 +46,24 @@ const WorkspaceScreen = () => {
         }
     };
 
+    const handleNewChannel = (newChannel) => {
+        setChannels([...channels, newChannel]);
+    };
+
     return (
-        <div className="workspace-screen-container"  >
-
-
-            {/* Invitar miembro al workspace */}
+        <div className="workspace-screen-container">
             <InviteMember />
 
-            {/* Mostrar el formulario para enviar mensajes */}
             <div>
                 {channel_id ? <Channel workspace_id={workspace_id} channel_id={channel_id} /> : <h2>Aún no has seleccionado ningún tema</h2>}
             </div>
 
-            {/* Mostrar la lista de canales */}
-            {channels_loading ? <h2>Cargando temas...</h2> : <ChannelsList channel_list={channels_data.data.channels} workspace_id={workspace_id} onWorkspaceClick={handleWorkspaceClick} />}
+            {channels_loading ? <h2>Cargando temas...</h2> : <ChannelsList channel_list={channels} workspace_id={workspace_id} onWorkspaceClick={handleWorkspaceClick} onChannelCreated={handleNewChannel} />}
         </div>
     );
 };
 
-const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick }) => {
+const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelCreated }) => {
     if (!channel_list || channel_list.length === 0) {
         return <p>No hay temas disponibles</p>;
     }
@@ -65,20 +71,17 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick }) => {
     return (
         <div style={{ display: 'flex', flexDirection: "column", gap: '8px' }}>
             <h2>Temas disponibles</h2>
-            {channel_list.map(channel => {
-                return (
-                    <div>
-
-                        <Link
-                            key={channel._id}
-                            to={`/workspace/${workspace_id}/${channel._id}`}
-                            onClick={() => onWorkspaceClick(workspace_id)}
-                        >
-                            #{channel.name}
-                        </Link>
-                    </div>
-                );
-            })}
+            <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
+            {channel_list.map(channel => (
+                <div key={channel._id}>
+                    <Link
+                        to={`/workspace/${workspace_id}/${channel._id}`}
+                        onClick={() => onWorkspaceClick(workspace_id)}
+                    >
+                        #{channel.name}
+                    </Link>
+                </div>
+            ))}
         </div>
     );
 };
@@ -104,14 +107,12 @@ const Channel = ({ workspace_id, channel_id }) => {
 
     return (
         <div>
-            {channel_loading ? <h2>Cargando canal...</h2> : channel_data.data.messages.map(message => {
-                return (
-                    <div key={message._id}>
-                        <h4>Autor: {message.sender.username}</h4>
-                        <p>{message.content}</p>
-                    </div>
-                );
-            })}
+            {channel_loading ? <h2>Cargando canal...</h2> : channel_data.data.messages.map(message => (
+                <div key={message._id}>
+                    <h4>Autor: {message.sender.username}</h4>
+                    <p>{message.content}</p>
+                </div>
+            ))}
             <form onSubmit={handleSubmitNewMessage}>
                 <input placeholder='Enviar mensaje' type='text' name='content' onChange={handleChangeInput} value={form_state.content} />
                 <button type='submit'>Enviar</button>
