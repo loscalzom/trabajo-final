@@ -56,8 +56,10 @@ const WorkspaceScreen = () => {
 
     return (
         <div className="workspace-screen-container">
-            <InviteMember />
+            {/* Título permanece igual */}
+            <h2>Aún no has seleccionado ningún tema</h2>
 
+            {/* Contenido dividido en dos columnas */}
             <div className="workspace-content">
                 <div>
                     {channel_id ? <Channel workspace_id={workspace_id} channel_id={channel_id} /> : <h2>Aún no has seleccionado ningún tema</h2>}

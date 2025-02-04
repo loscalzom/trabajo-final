@@ -95,6 +95,7 @@ p {
     font-size: 1rem;
 }
 
+/* División en dos columnas */
 .workspace-content {
     display: flex;
     flex-wrap: wrap;
