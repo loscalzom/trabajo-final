@@ -1,0 +1,61 @@
+/* Contenedor principal similar al login */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    color: #791717;
+    background-color: beige;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de los espacios de trabajo */
+.workspace-container {
+    background-color: beige;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para cada workspace */
+.workspace-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+.workspace-item h3 {
+    color: #791717;
+    margin-bottom: 5px;
+}
+
+/* Botones y enlaces */
+.workspace-container a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #da4834;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.workspace-container a:hover {
+    background-color: #b52d1e;
+}

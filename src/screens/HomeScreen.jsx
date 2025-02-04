@@ -3,7 +3,7 @@ import ENVIROMENT from '../utils/constants/enviroment'
 import { getAuthenticatedHeaders } from '../fetching/customHeaders'
 import { useFetch } from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
-
+import '../css/homeScreen.css'
 
 const HomeScreen = () => {
     const { 
@@ -17,7 +17,7 @@ const HomeScreen = () => {
    console.log(workspace_response)
   return (
     <div>
-        <h1>Bienvenido a la app {/* en un futuro podrian poner el nombre del usuario */}</h1>
+        <h1>Bienvenido al Chat de Amigos</h1>
         <div>
             <h2>Tus espacios de trabajo</h2>
             <div>
