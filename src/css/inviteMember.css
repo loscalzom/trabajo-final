@@ -10,8 +10,8 @@
     max-width: 400px;
     margin: 20px auto;
     text-align: center;
-    height: 45vh; /* Reduce la altura a la mitad */
-    min-height: 150px; /* Añadir un mínimo para que no se haga demasiado pequeño en pantallas pequeñas */
+    height: 35vh; /* Reduce la altura a la mitad */
+    min-height: 120px; /* Añadir un mínimo para que no se haga demasiado pequeño en pantallas pequeñas */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centrar el contenido */
