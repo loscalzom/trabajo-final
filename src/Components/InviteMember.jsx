@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import ENVIROMENT from "../utils/constants/enviroment";
 import { getAuthenticatedHeaders } from "../fetching/customHeaders";
-import './css/inviteMember.css'
+import '../css/inviteMember.css'
 
 const InviteMember = () => {
   const { workspace, setWorkspace } = useContext(AuthContext);
