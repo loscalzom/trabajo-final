@@ -21,9 +21,9 @@ h2 {
     color: #791717;
     background-color: beige;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 5px 10px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-}
+    font-size: 1.2rem}
 
 /* Estilo del formulario de invitación */
 form {
