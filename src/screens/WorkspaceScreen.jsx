@@ -28,6 +28,8 @@ const WorkspaceScreen = () => {
         }
     }, [channels_data]);
 
+    
+
     const handleWorkspaceClick = async (workspace_id) => {
         console.log("Workspace ID clicked:", workspace_id);
         try {
@@ -47,6 +49,8 @@ const WorkspaceScreen = () => {
     };
 
     const handleNewChannel = (newChannel) => {
+        console.log("Nuevo canal creado:", newChannel)
+
         setChannels([...channels, newChannel]);
     };
 
