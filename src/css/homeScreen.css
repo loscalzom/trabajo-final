@@ -19,7 +19,7 @@
     width: 90%;
     max-width: 500px;
     text-align: center;
-    max-height: 250px; /* Altura máxima reducida */
+    max-height: 140px; /* Altura máxima reducida */
     overflow-y: auto; /* Permite scroll solo en este contenedor */
 }
 
@@ -47,4 +47,25 @@
 
 .workspace-container a:hover {
     background-color: #b52d1e;
+}
+h1 {
+    text-align: center;
+    color: #791717; /* Este es el color que quieres usar */
+    background-color: beige;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Asegúrate de que h2, h3 y span tengan el mismo color */
+h2, h3, span {
+    color: #791717; /* Color igual al h1 */
+}
+
+/* Estilos para h2, h3 y span (puedes agregar más propiedades si es necesario) */
+h2, h3 {
+    background-color: beige;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
