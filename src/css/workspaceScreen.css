@@ -95,3 +95,13 @@ p {
     font-size: 1rem;
 }
 
+.channels-container {
+    display: 'flex';
+    flex-direction: row;
+    gap: '8px';
+}
+.channels-list-container {
+    display: 'flex';
+    flex-direction: column;
+    gap: '8px';
+}

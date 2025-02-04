@@ -77,23 +77,23 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
     }
 
     return (
-        <div style={{ display: 'flex', flexDirection: "row", gap: '8px' }}>
-            <h2>Temas disponibles</h2>
+        <div className='channels-container'>
+            <div className='channels-list-container'>
+                <h2>Temas disponibles</h2>
 
-            {channel_list.map(channel => (
-                <div key={channel._id}>
-                    <div>
-                        <Link
-                            to={`/workspace/${workspace_id}/${channel._id}`}
-                            onClick={() => onWorkspaceClick(workspace_id)}
-                        >
-                            #{channel.name}
-                        </Link>
+                {channel_list.map(channel => (
+                    <div key={channel._id}>
+                        <div>
+                            <Link
+                                to={`/workspace/${workspace_id}/${channel._id}`}
+                                onClick={() => onWorkspaceClick(workspace_id)}
+                            >
+                                #{channel.name}
+                            </Link>
+                        </div>
                     </div>
-                </div>
-            ))}
-
-            {/* Aquí el formulario estará debajo de la lista de canales */}
+                ))}
+            </div>
             <div>
                 <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
             </div>
