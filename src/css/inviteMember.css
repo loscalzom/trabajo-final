@@ -82,3 +82,8 @@ p {
     color: red;
     font-weight: bold;
 }
+@media (max-width: 550px) {
+    h2 {
+        font-size: 0.9rem; /* 60% menos que 1.5rem */
+    }
+}
