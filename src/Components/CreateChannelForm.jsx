@@ -6,6 +6,8 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
     console.log("Workspace ID:", workspace_id)
 
     const handleCreateChannel = async () => {
+        console.log("Se ha llamado a handleCreateChannel")
+
         if (!channelName.trim()) return alert("El nombre del canal no puede estar vacío");
 
         const apiUrl = `${process.env.REACT_APP_API_URL}/api/channel/${workspace_id}`;
