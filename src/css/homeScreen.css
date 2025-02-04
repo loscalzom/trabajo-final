@@ -19,8 +19,7 @@
     width: 90%;
     max-width: 500px;
     text-align: center;
-    max-height: 500px; /* Altura máxima reducida */
-    overflow-y: auto; /* Permite scroll solo en este contenedor */
+    margin-bottom: 10px; /* Añadido margen para separar de otros workspace-container */
 }
 
 /* Ajustar la altura de cada workspace */
@@ -49,6 +48,8 @@
 .workspace-container a:hover {
     background-color: #b52d1e;
 }
+
+/* Título principal */
 h1 {
     text-align: center;
     color: #791717; /* Este es el color que quieres usar */
@@ -57,9 +58,6 @@ h1 {
     padding: 10px 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
-
-
-
 
 /* Asegúrate de que h2, h3 y span tengan el mismo color */
 h2, h3, span {
@@ -72,4 +70,10 @@ h2, h3 {
     border-radius: 5px;
     padding: 10px 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor que tiene el scroll (solo los items de los workspaces) */
+.workspace-container > div {
+    max-height: 350px; /* Limitar la altura de los workspace items */
+    overflow-y: auto; /* Permite scroll solo en esta área */
 }
