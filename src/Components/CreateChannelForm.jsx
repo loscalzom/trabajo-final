@@ -3,6 +3,8 @@ import { useState } from "react";
 const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
     const [channelName, setChannelName] = useState("");
 
+    console.log("Workspace ID:", workspace_id)
+
     const handleCreateChannel = async () => {
         if (!channelName.trim()) return alert("El nombre del canal no puede estar vacío");
 
