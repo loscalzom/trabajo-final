@@ -126,6 +126,10 @@ p {
     
 
 
+    .home-button {
+        background-color: #f44336; 
+      }
+
 .workspace-content {
     display: flex;
     flex-direction: column;

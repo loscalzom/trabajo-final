@@ -59,6 +59,9 @@ const handleSubmitResetPassword= async (event) => {
     setLoading(false);
 
 }
+const handleGoHome = () => {
+    history.push('/')
+}
 
 return (
     <div>
@@ -78,7 +81,12 @@ return (
             <button type="submit" disabled={loading}>
                 {loading ? 'Procesando...' : 'Enviar'}
             </button>
+            <button type="button" onClick={handleGoHome} className="home-button">
+                    Volver a Inicio
+                </button>
+
         </form>
+       
     </div>
 );
 };
