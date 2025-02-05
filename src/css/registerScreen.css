@@ -1,0 +1,42 @@
+h1 {
+    text-align: center;
+    color: #791717;
+    background-color: beige;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 0 auto;
+   margin-top: 50px;
+    }
+
+    .success-message,
+.error-message {
+  margin-top: 20px; /* Agrega margen superior a los mensajes */
+  color: red; /* Añadir color a los mensajes de error */
+}
+.success-message {
+  color: green; /* Añadir color a los mensajes de éxito */
+}
+
+    .item-register-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+        box-sizing: border-box;
+      } 
+
+      label {
+        color: #791717;
+        font-size: 1rem;
+        text-align: center;
+        background-color: beige;
+        border-radius: 5px;
+        padding: 10px 20px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin-bottom: 15px;
+      }
