@@ -79,21 +79,21 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
     return (
         <div className='channels-container'>
             <div className='channels-list-container'>
-                <h2>Temas disponibles</h2>
-
-                {channel_list.map(channel => (
-                    <div className='channel-items' key={channel._id}>
-                        <div>
-                            <Link
-                                to={`/workspace/${workspace_id}/${channel._id}`}
-                                onClick={() => onWorkspaceClick(workspace_id)}
-                            >
-                                #{channel.name}
-                            </Link>
+                <div><h2>Temas disponibles</h2></div>
+                <div className='channel-items'>
+                    {channel_list.map(channel => (
+                        <div key={channel._id}>
+                            <div>
+                                <Link
+                                    to={`/workspace/${workspace_id}/${channel._id}`}
+                                    onClick={() => onWorkspaceClick(workspace_id)}
+                                >
+                                    #{channel.name}
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div></div>
             <div>
                 <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
             </div>
