@@ -29,16 +29,16 @@ h2 {
 
 }
 
-.channel-list a {
+.channel-items a {
     color: #791717 !important;  /* Color uniforme para todos los enlaces */
     text-decoration: none;
 }
 
-.channel-list a:hover {
+.channel-items a:hover {
     color: #da4834;  /* Color cuando pasas el mouse */
 }
 
-.channel-list a:visited {
+.channel-items a:visited {
     color: #791717 !important;  /* Evita que los enlaces visitados cambien de color */
 }
 
