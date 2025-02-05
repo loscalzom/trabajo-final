@@ -2,6 +2,7 @@ import React from 'react'
 import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroment'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import  '../css/loginScreen.css'
 
 const ResetPasswordScreen = () => {
@@ -13,6 +14,8 @@ const {form_state,handleChangeInput}=useForm({password:""})
 
 const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
 const handleSubmitResetPassword= async (event) => {
    
@@ -60,7 +63,8 @@ const handleSubmitResetPassword= async (event) => {
 
 }
 const handleGoHome = () => {
-    history.push('/')
+    navigate('/'); 
+    }
 }
 
 return (
