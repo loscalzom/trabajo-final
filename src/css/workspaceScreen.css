@@ -88,6 +88,7 @@ button:hover {
     margin-top: 10px;
 }
 .channel-items {
+    padding: 10px;
    max-height: 100px;
    display: flex;
    flex-wrap: wrap;
