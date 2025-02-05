@@ -88,7 +88,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
                                     to={`/workspace/${workspace_id}/${channel._id}`}
                                     onClick={() => onWorkspaceClick(workspace_id)}
                                 >
-                                   {" "} #{channel.name}
+                                    {` #${channel.name}`}
                                 </Link>
                             </div>
                         </div>
