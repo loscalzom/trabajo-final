@@ -82,7 +82,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
                 <h2>Temas disponibles</h2>
 
                 {channel_list.map(channel => (
-                    <div key={channel._id}>
+                    <div className='channel-items' key={channel._id}>
                         <div>
                             <Link
                                 to={`/workspace/${workspace_id}/${channel._id}`}

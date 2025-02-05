@@ -87,6 +87,9 @@ button:hover {
 .channel-message {
     margin-top: 10px;
 }
+.channel-items {
+   max-height: 100px;
+}
 
 h4 {
     color: #791717;
