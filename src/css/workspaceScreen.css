@@ -25,6 +25,17 @@ h2 {
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
+    color: #791717 !important; 
+    text-decoration: none;
+
+}
+
+.channel-list a:hover {
+    color: #da4834;  /* Color cuando pasas el mouse */
+}
+
+.channel-list a:visited {
+    color: #791717 !important;  /* Evita que los enlaces visitados cambien de color */
 }
 
 .channel-item {
