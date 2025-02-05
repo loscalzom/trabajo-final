@@ -52,11 +52,11 @@ const LoginScreen = () => {
                 login(data.data.access_token, userData, workspaceData);
                 navigate("/home");
             } else {
-                setErrorMessage("Token no encontrado en la respuesta"); // Muestra el mensaje de error
+                setErrorMessage("Error al iniciar sesión. Por favor, verifica tu correo y contraseña."); // Mensaje de error más claro para el usuario
             }
 
         } catch (error) {
-            setErrorMessage("Error al iniciar sesión. Por favor, verifica tu correo y contraseña."); // Muestra el mensaje de error
+            setErrorMessage("Error al iniciar sesión. Por favor, verifica tu correo y contraseña."); // Mensaje de error más claro para el usuario
             console.error("Error al loguear", error);
         }
     }
