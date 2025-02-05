@@ -108,6 +108,7 @@ button:hover {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
+   align-items: center;
 }
 
 h4 {
@@ -117,9 +118,13 @@ h4 {
 }
 
 p {
-    color: #444;
+    color:#791717;
     font-size: 1rem;
-}
+   
+     
+    }
+    
+
 
 .workspace-content {
     display: flex;
