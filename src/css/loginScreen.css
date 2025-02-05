@@ -100,3 +100,13 @@
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     max-width: 300px;
   }
+
+  .reset-password-title {
+    color: #791717;
+    font-size: 1rem;
+    text-align: center;
+    background-color: beige;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);  
+  }

@@ -72,28 +72,32 @@ const WorkspaceScreen = () => {
 };
 
 const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelCreated }) => {
-    if (!channel_list || channel_list.length === 0) {
-        return <p>No hay temas disponibles</p>;
-    }
-
     return (
         <div className='channels-container'>
             <div className='channels-list-container'>
                 <div><h2>Temas disponibles</h2></div>
                 <div className='channel-items'>
-                    {channel_list.map(channel => (
-                        <div key={channel._id}>
-                            <div>
-                                <Link
-                                    to={`/workspace/${workspace_id}/${channel._id}`}
-                                    onClick={() => onWorkspaceClick(workspace_id)}
-                                >
-                                    {` #${channel.name}`}
-                                </Link>
+                    {/* Solo muestra los canales si existen, de lo contrario muestra el mensaje */}
+                    {channel_list && channel_list.length > 0 ? (
+                        channel_list.map(channel => (
+                            <div key={channel._id}>
+                                <div>
+                                    <Link
+                                        to={`/workspace/${workspace_id}/${channel._id}`}
+                                        onClick={() => onWorkspaceClick(workspace_id)}
+                                    >
+                                        {` #${channel.name}`}
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div></div>
+                        ))
+                    ) : (
+                        <p>No hay temas disponibles</p> // Mensaje si la lista está vacía
+                    )}
+                </div>
+            </div>
+
+            {/* Crear el formulario de creación de canal siempre */}
             <div>
                 <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
             </div>

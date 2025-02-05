@@ -62,7 +62,7 @@ const handleSubmitResetPassword= async (event) => {
 
 return (
     <div>
-        <h1>Elige una nueva contraseña</h1>
+        <h1 className='reset-password-title'>Elige una nueva contraseña</h1>
         {message && <p style={{ color: message.startsWith('✅') ? 'green' : 'red' }}>{message}</p>}
 
         <form onSubmit={handleSubmitResetPassword}>
