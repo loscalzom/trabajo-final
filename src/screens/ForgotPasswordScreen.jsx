@@ -33,11 +33,11 @@ if(data.ok){
 
 
     return (
-        <div>
+        <div className="login-container">
             <h1>Restablecer contraseña</h1>
             <p>Vamos a enviarte un correo electrónico con los pasos a seguir para restablecer tu contraseña</p>
             <form onSubmit={handleSubmitForgotPassword}>
-                <label htmlFor="email">Ingresa el email con el que te registrarte:</label>
+                <label htmlFor="email" className='your-email'>Ingresa el email con el que te registrarte:</label>
                 <input placeholder='joe@joe' name='email' id='email' type="email" onChange={handleChangeInput} />
                 <button>Enviar correo</button>
             </form>

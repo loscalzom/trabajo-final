@@ -1,6 +1,7 @@
 import React from 'react'
 import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroment'
+import  '../css/loginScreen.css'
 
 const ResetPasswordScreen = () => {
 
@@ -8,11 +9,28 @@ const ResetPasswordScreen = () => {
 
 const reset_token= url.get('reset_token')
 const {form_state,handleChangeInput}=useForm({password:""})
+
+const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false);
+
 const handleSubmitResetPassword= async (event) => {
    
+    event.preventDefault()
+
+    if (!form_state.password) {
+        setMessage('⚠️ La contraseña no puede estar vacía.');
+        return;
+    }
+
+    if (!reset_token) {
+        setMessage('❌ Error: Token no válido.');
+        return;
+    }
+
+    setLoading(true)
 
     try {
-        event.preventDefault()
+      
         const res = await fetch(`${ENVIROMENT.API_URL}/api/auth/reset-password?reset_token=${reset_token}`,{
             method:"POST",
             headers: {
@@ -22,26 +40,46 @@ const handleSubmitResetPassword= async (event) => {
         }) 
 
         const data= await res.json()
-        console.log(data)
+        console.log('Respuesta del servidor:', data);
+
+        if (res.ok) {
+            setMessage('✅ Contraseña cambiada con éxito. Ahora puedes iniciar sesión.');
+        } else {
+            setMessage(`❌ Error: ${data.message || 'No se pudo cambiar la contraseña.'}`);
+        }
+
         
     } catch (error) {
-        console.error(error)
+
+        console.error('Error en la solicitud:', error);
+        setMessage('❌ Error de conexión. Inténtalo nuevamente.')
+        
     }
+    setLoading(false);
+
 }
 
-    return (
-        <div>
-            <h1>Elige una nueva contraseña</h1>
-            <form onSubmit={handleSubmitResetPassword}>
-                <label htmlFor="password">Nueva contrasena:</label>
-                <input type="password" name='password' id='password' placeholder='*******' onChange={handleChangeInput}/>
-                
-                <button>Enviar</button>
+return (
+    <div>
+        <h1>Elige una nueva contraseña</h1>
+        {message && <p style={{ color: message.startsWith('✅') ? 'green' : 'red' }}>{message}</p>}
 
+        <form onSubmit={handleSubmitResetPassword}>
+            <label htmlFor="password" className="new-password">Nueva contraseña:</label>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="*******"
+                onChange={handleChangeInput}
+            />
 
-            </form>
-        </div>
-    )
-}
+            <button type="submit" disabled={loading}>
+                {loading ? 'Procesando...' : 'Enviar'}
+            </button>
+        </form>
+    </div>
+);
+};
 
 export default ResetPasswordScreen
