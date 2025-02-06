@@ -59,9 +59,9 @@ const Channel = () => {
     return (
         <div className="channel-container">
             {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
-            <h2 className="channel-title">{channel_data?.data?.name || "Canal no disponible"}</h2>
+            <h2 className="channel-title">{channel_data?.name || "Canal no disponible"}</h2>
 
-            console.log({Channel.name})
+            
             
             {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
             {messages.length > 0 ? (
