@@ -92,7 +92,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
                             </div>
                         ))
                     ) : (
-                        <p>No hay temas disponibles. Puedes crear uno nuevo.</p> 
+                        <p className='tema-advice'>No hay temas disponibles. Puedes crear uno nuevo.</p> 
                     )}
                 </div>
             </div>
