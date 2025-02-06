@@ -5,18 +5,21 @@ import { getAuthenticatedHeaders } from '../fetching/customHeaders';
 import useForm from '../hooks/useForm';
 import ENVIROMENT from '../utils/constants/enviroment';
 
-const Channel = ({ workspace_id, channel_id }) => {
-    const { data: channel_data, loading: channel_loading, error: channel_error } = useFetch(ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`, {
-        method: 'GET',
-        headers: getAuthenticatedHeaders()
-    });
+const Channel = () => {
+    const { workspace_id, channel_id } = useParams();  // Asegúrate de que useParams esté extrayendo correctamente los parámetros
+
+    console.log("Workspace ID:", workspace_id);
+    console.log("Channel ID:", channel_id);
+
+    const { data: channel_data, loading: channel_loading, error: channel_error } = useFetch(
+        ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`, 
+        {
+            method: 'GET',
+            headers: getAuthenticatedHeaders()
+        }
+    );
 
     const { form_state, handleChangeInput } = useForm({ content: "" });
-
-    useEffect(() => {
-        // Aquí puedes hacer alguna acción si es necesario cuando el canal cambie
-        console.log("Canal cargado:", channel_id);
-    }, [channel_id]);
 
     const handleSubmitNewMessage = async (e) => {
         e.preventDefault();
