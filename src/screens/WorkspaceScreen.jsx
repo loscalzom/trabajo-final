@@ -49,7 +49,7 @@ const WorkspaceScreen = () => {
     };
 
     const handleNewChannel = (newChannel) => {
-        console.log("Nuevo canal creado:", newChannel)
+        console.log("Nuevo tema creado:", newChannel)
 
         setChannels([...channels, newChannel]);
     };
@@ -126,7 +126,7 @@ const Channel = ({ workspace_id, channel_id }) => {
 
     return (
         <div>
-            {channel_loading ? <h2>Cargando canal...</h2> : channel_data.data.messages.map(message => (
+            {channel_loading ? <h2>Cargando tema...</h2> : channel_data.data.messages.map(message => (
                 <div key={message._id}>
                     <h4>Autor: {message.sender.username}</h4>
                     <p>{message.content}</p>

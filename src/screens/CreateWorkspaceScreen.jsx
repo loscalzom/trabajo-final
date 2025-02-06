@@ -32,7 +32,7 @@ const CreateWorkspaceScreen = () => {
                     id='name' 
                     type='text' 
                     name='name' 
-                    placeholder='nombre del workspace' 
+                    placeholder='nombre del grupo' 
                     onChange={handleChangeInput}
                     value={form_state.name}
                 />

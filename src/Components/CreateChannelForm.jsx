@@ -9,7 +9,7 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
         console.log("Se ha llamado a handleCreateChannel");
 
         if (!channelName.trim()) {
-            return alert("El nombre del canal no puede estar vacío");
+            return alert("El nombre del tema no puede estar vacío");
         }
 
         console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
@@ -45,11 +45,11 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
                 onChannelCreated(data.data.new_channel); // Actualizar lista de canales
                 setChannelName(""); // Limpiar input
             } else {
-                alert("Error al crear el canal: " + data.message);
+                alert("Error al crear el tema: " + data.message);
             }
         } catch (error) {
-            console.error("Error al crear el canal:", error);
-            alert("Hubo un problema al crear el canal. Revisa la consola para más detalles.");
+            console.error("Error al crear el tema:", error);
+            alert("Hubo un problema al crear el tema. Revisa la consola para más detalles.");
         }
     };
 
