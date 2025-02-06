@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import { getAuthenticatedHeaders } from '../fetching/customHeaders';
 import useForm from '../hooks/useForm';
@@ -7,6 +7,7 @@ import ENVIROMENT from '../utils/constants/enviroment';
 
 const Channel = () => {
     const { workspace_id, channel_id } = useParams();  // Asegúrate de que useParams esté extrayendo correctamente los parámetros
+    const navigate = useNavigate();  // Para redirigir al usuario
 
     console.log("Workspace ID:", workspace_id);
     console.log("Channel ID:", channel_id);
@@ -32,7 +33,7 @@ const Channel = () => {
         console.log(responseData);
     };
 
-    // Verifica que channel_data y channel_data.data estén definidos
+    // Verifica que los datos del canal se hayan cargado correctamente
     if (channel_loading) {
         return <h3>Cargando canal...</h3>;
     }
@@ -43,7 +44,8 @@ const Channel = () => {
 
     return (
         <div className="channel-container">
-            <h2>Canal: {channel_data?.data?.name}</h2>
+            {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
+            <h2>{channel_data?.data?.name || "Canal no disponible"}</h2>
             
             {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
             {channel_data?.data?.messages?.length > 0 ? (
@@ -72,6 +74,9 @@ const Channel = () => {
                     <button type="submit">Enviar</button>
                 </form>
             </div>
+
+            {/* Botón para volver al workspace o a la página anterior */}
+            <button onClick={() => navigate(-1)}>Volver</button>
         </div>
     );
 };
