@@ -19,7 +19,8 @@
     width: 90%;
     max-width: 500px;
     text-align: center;
-    margin-bottom: 10px; /* Añadido margen para separar de otros workspace-container */
+    margin-bottom: 10px; 
+    opacity: 0.90;
 }
 
 /* Ajustar la altura de cada workspace */
@@ -57,6 +58,7 @@ h1 {
     border-radius: 5px;
     padding: 10px 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0.90;
 }
 
 /* Asegúrate de que h2, h3 y span tengan el mismo color */

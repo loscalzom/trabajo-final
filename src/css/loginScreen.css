@@ -16,6 +16,7 @@
     border-radius: 5px;
     padding: 10px 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0.90;
     }
   .login-form {
     background-color: beige;
@@ -25,6 +26,7 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
+    opacity: 0.90;
     
   }
   
