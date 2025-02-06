@@ -45,38 +45,39 @@ const Channel = () => {
     return (
         <div className="channel-container">
             {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
-            <h2>{channel_data?.data?.name || "Canal no disponible"}</h2>
+            <h2 className="channel-title">{channel_data?.data?.name || "Canal no disponible"}</h2>
             
             {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
             {channel_data?.data?.messages?.length > 0 ? (
-                <div>
+                <div className="messages-container">
                     {channel_data.data.messages.map(message => (
-                        <div key={message._id}>
-                            <h4>Autor: {message.sender.username}</h4>
-                            <p>{message.content}</p>
+                        <div key={message._id} className="message-item">
+                            <h4 className="message-author">Autor: {message.sender.username}</h4>
+                            <p className="message-content">{message.content}</p>
                         </div>
                     ))}
                 </div>
             ) : (
-                <p>No hay mensajes en este canal.</p>
+                <p className="no-messages">No hay mensajes en este canal.</p>
             )}
 
             {/* Formulario para enviar mensaje */}
             <div className="send-message-form">
                 <form onSubmit={handleSubmitNewMessage}>
                     <input
+                        className="message-input"
                         placeholder="Escribe un mensaje"
                         type="text"
                         name="content"
                         onChange={handleChangeInput}
                         value={form_state.content}
                     />
-                    <button type="submit">Enviar</button>
+                    <button type="submit" className="send-button">Enviar</button>
                 </form>
             </div>
 
             {/* Botón para volver al workspace o a la página anterior */}
-            <button onClick={() => navigate(-1)}>Volver</button>
+            <button onClick={() => navigate(-1)} className="back-button">Volver</button>
         </div>
     );
 };
