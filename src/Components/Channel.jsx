@@ -6,8 +6,8 @@ import useForm from '../hooks/useForm';
 import ENVIROMENT from '../utils/constants/enviroment';
 
 const Channel = () => {
-    const { workspace_id, channel_id } = useParams();  // Asegúrate de que useParams esté extrayendo correctamente los parámetros
-    const navigate = useNavigate();  // Para redirigir al usuario
+    const { workspace_id, channel_id } = useParams();  
+    const navigate = useNavigate();  
 
     console.log("Workspace ID:", workspace_id);
     console.log("Channel ID:", channel_id);
@@ -23,15 +23,6 @@ const Channel = () => {
     // Imprime el contenido de channel_data para ver la estructura real
     useEffect(() => {
         console.log("Channel Data:", channel_data);
-    }, [channel_data]);
-
-    // Estado para mensajes
-    const [messages, setMessages] = useState([]);
-
-    useEffect(() => {
-        if (channel_data && channel_data.data && channel_data.data.messages) {
-            setMessages(channel_data.data.messages); // Si los mensajes están dentro de channel_data.data
-        }
     }, [channel_data]);
 
     const { form_state, handleChangeInput } = useForm({ content: "" });
@@ -61,15 +52,20 @@ const Channel = () => {
         return <h3>Error al cargar el canal: {channel_error.message}</h3>;
     }
 
+    // Verifica si channel_data y los mensajes están presentes
+    if (!channel_data || !channel_data.data || !channel_data.data.messages) {
+        return <h3>No se encontraron datos del canal.</h3>;
+    }
+
     return (
         <div className="channel-container">
             {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
             <h2 className="channel-title">{channel_data?.data?.name || "Canal no disponible"}</h2>
             
             {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
-            {messages.length > 0 ? (
+            {channel_data?.data?.messages?.length > 0 ? (
                 <div className="messages-container">
-                    {messages.map(message => (
+                    {channel_data.data.messages.map(message => (
                         <div key={message._id} className="message-item">
                             <h4 className="message-author">Autor: {message.sender.username}</h4>
                             <p className="message-content">{message.content}</p>
