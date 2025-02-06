@@ -1,19 +1,19 @@
 .create-workspace-screen-container {
 
-    margin-top: 500px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 50vh;
-    width: 50vh;
+    width: 70vh;
     box-sizing: border-box;
     margin: auto;
     max-width: 90%;
-    min-width: 90%;
+ 
     background-color: beige;
     opacity: 0.90;
-    ;
+    ;margin-top: 180px;
 }
 
 .input-container {
