@@ -20,15 +20,17 @@ const Channel = () => {
         }
     );
 
+    // Imprime el contenido de channel_data para ver la estructura real
     useEffect(() => {
         console.log("Channel Data:", channel_data);
     }, [channel_data]);
+
     // Estado para mensajes
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        if (channel_data?.data?.messages) {
-            setMessages(channel_data.data.messages);
+        if (channel_data && channel_data.data && channel_data.data.messages) {
+            setMessages(channel_data.data.messages); // Si los mensajes están dentro de channel_data.data
         }
     }, [channel_data]);
 
@@ -63,8 +65,6 @@ const Channel = () => {
         <div className="channel-container">
             {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
             <h2 className="channel-title">{channel_data?.data?.name || "Canal no disponible"}</h2>
-
-            
             
             {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
             {messages.length > 0 ? (
