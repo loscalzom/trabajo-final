@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import { getAuthenticatedHeaders } from '../fetching/customHeaders';
@@ -19,7 +19,16 @@ const Channel = () => {
             headers: getAuthenticatedHeaders()
         }
     );
-    console.log(channel_data);
+
+    // Estado para mensajes
+    const [messages, setMessages] = useState([]);
+
+    useEffect(() => {
+        if (channel_data?.data?.messages) {
+            setMessages(channel_data.data.messages);
+        }
+    }, [channel_data]);
+
     const { form_state, handleChangeInput } = useForm({ content: "" });
 
     const handleSubmitNewMessage = async (e) => {
@@ -31,6 +40,11 @@ const Channel = () => {
         });
         const responseData = await response.json();
         console.log(responseData);
+
+        // Si el mensaje se envía correctamente, actualiza la lista de mensajes
+        if (responseData.ok) {
+            setMessages([...messages, responseData.data]); // Agregar el nuevo mensaje a la lista
+        }
     };
 
     // Verifica que los datos del canal se hayan cargado correctamente
@@ -48,9 +62,9 @@ const Channel = () => {
             <h2 className="channel-title">{channel_data?.data?.name || "Canal no disponible"}</h2>
             
             {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
-            {channel_data?.data?.messages?.length > 0 ? (
+            {messages.length > 0 ? (
                 <div className="messages-container">
-                    {channel_data.data.messages.map(message => (
+                    {messages.map(message => (
                         <div key={message._id} className="message-item">
                             <h4 className="message-author">Autor: {message.sender.username}</h4>
                             <p className="message-content">{message.content}</p>
