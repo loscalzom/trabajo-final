@@ -25,8 +25,14 @@ const RegisterScreen = () => {
                 setSuccessMessage('✅ Registro exitoso. Por favor, revisa tu correo electrónico para verificar tu cuenta.');
                 setErrorMessage('');
             } else {
-                setErrorMessage(`❌ Error: ${data.message || 'No se pudo completar el registro.'}`);
-                setSuccessMessage('');
+                switch (data.message) {
+                    case 'Email user already exists':
+                        setErrorMessage('❌ Error: El correo electrónico ya está registrado.');
+                        break;
+                    default:
+                        setErrorMessage(`❌ Error: ${data.message || 'No se pudo completar el registro.'}`);
+                        break;
+                }
             }
         } catch (error) {
             console.error("Error al crear usuario", error);
