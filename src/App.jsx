@@ -11,6 +11,7 @@ import HomeScreen from "./screens/HomeScreen"
 import CreateWorkspaceScreen from "./screens/CreateWorkspaceScreen"
 import WorkspaceScreen from "./screens/WorkspaceScreen"
 import "./css/global.css"
+import Channel from "./Components/Channel"
 
 
 
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/workspace/new" element={<CreateWorkspaceScreen />} />
         <Route path="/workspace/:workspace_id" element={<WorkspaceScreen />} />
         <Route path="/workspace/:workspace_id/:channel_id" element={<WorkspaceScreen />} />
+        <Route path="/workspace/:workspace_id/:channel_id" element={<Channel />} />
        
         </Route>
 

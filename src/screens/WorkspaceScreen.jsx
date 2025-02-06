@@ -11,7 +11,7 @@ import '../css/workspaceScreen.css';
 
 const WorkspaceScreen = () => {
     const { workspace_id, channel_id } = useParams();
-    const { setWorkspace } = useContext(AuthContext);
+    const { setWorkspace } = useContext(AuthContext); 
     const [channels, setChannels] = useState([]);
 
     console.log("Workspace ID:", workspace_id);
@@ -60,7 +60,7 @@ const WorkspaceScreen = () => {
 
             <div className="workspace-content">
                 <div>
-                    {channel_id ? <Channel workspace_id={workspace_id} channel_id={channel_id} /> : <h2 className='tema-advice'>Aún no has seleccionado ningún tema</h2>}
+                {!channel_id && <h2 className='tema-advice'>Aún no has seleccionado ningún tema</h2>}
                 </div>
 
                 <div>

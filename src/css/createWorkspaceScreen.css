@@ -14,6 +14,9 @@
     background-color: beige;
     opacity: 0.90;
     ;margin-top: 180px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .input-container {
@@ -52,6 +55,6 @@
 
 @media (max-width: 400px) {
     .createWorkspace-title {
-        font-size: 1.5em; 
+        font-size: 1em; 
     }
 }
