@@ -4,6 +4,7 @@ import { useFetch } from '../hooks/useFetch'
 import ENVIROMENT from '../utils/constants/enviroment'
 import { getAuthenticatedHeaders } from '../fetching/customHeaders'
 import { useNavigate } from 'react-router-dom'
+import '../css/createWorkspaceScreen.css'
 
 const CreateWorkspaceScreen = () => {
     const navigate = useNavigate()
@@ -23,8 +24,8 @@ const CreateWorkspaceScreen = () => {
         navigate('/home')
     }
   return (
-    <div>
-        <h1>Crear un nuevo grupo</h1>
+    <div className='create-workspace-screen-container'>
+        <h1 className='create-workspace-title'>Crear un nuevo grupo</h1>
         <form onSubmit={handleCreateWorkspace}>
             <div>
                 <label htmlFor="name"></label>

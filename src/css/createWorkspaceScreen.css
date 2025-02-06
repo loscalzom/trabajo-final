@@ -1,0 +1,9 @@
+.createWorkspace-title {
+    text-align: center;
+    color: #791717; 
+    background-color: #edcb7c;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0.90;
+}
