@@ -20,6 +20,9 @@ const Channel = () => {
         }
     );
 
+    useEffect(() => {
+        console.log("Channel Data:", channel_data);
+    }, [channel_data]);
     // Estado para mensajes
     const [messages, setMessages] = useState([]);
 
@@ -59,7 +62,7 @@ const Channel = () => {
     return (
         <div className="channel-container">
             {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
-            <h2 className="channel-title">{channel_data?.name || "Canal no disponible"}</h2>
+            <h2 className="channel-title">{channel_data?.data?.name || "Canal no disponible"}</h2>
 
             
             
