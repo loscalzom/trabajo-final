@@ -19,7 +19,7 @@ const Channel = () => {
             headers: getAuthenticatedHeaders()
         }
     );
-
+    console.log(channel_data);
     const { form_state, handleChangeInput } = useForm({ content: "" });
 
     const handleSubmitNewMessage = async (e) => {
