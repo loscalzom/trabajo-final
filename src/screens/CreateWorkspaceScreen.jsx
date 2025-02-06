@@ -27,8 +27,8 @@ const CreateWorkspaceScreen = () => {
     <div className='create-workspace-screen-container'>
         <h1 className='create-workspace-title'>Crear un nuevo grupo</h1>
         <form onSubmit={handleCreateWorkspace}>
-            <div>
-                <label htmlFor="name"></label>
+            <div className='input-container'>
+                <label htmlFor="name">Ingresa el nombre</label>
                 <input 
                     id='name' 
                     type='text' 
