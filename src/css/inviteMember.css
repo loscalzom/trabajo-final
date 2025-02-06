@@ -19,13 +19,24 @@
 
 .invite-member-title {
     color: #791717;
-    background-color: beige;
+    background-color: #edcb7c;
     border-radius: 5px;
     padding: 3px 6px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     font-size: 1rem;
     margin-bottom: 8px;
 }
+.invite-member-advice {
+    color: #791717;
+    background-color: rgb(213, 240, 122);
+    border-radius: 5px;
+    padding: 3px 6px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+
 
 /* Estilo del formulario de invitación */
 form {
@@ -85,13 +96,13 @@ p {
     font-weight: bold;
 }
 @media (max-width: 550px) {
-    h2 {
+    .invite-member-title , .invite-member-advice {
         font-size: 0.9rem; 
     }
 }
 
 @media (max-width: 375px) {
-    h2 {
+    .invite-member-title , .invite-member-advice {
         font-size: 0.7rem; 
     }
 }
