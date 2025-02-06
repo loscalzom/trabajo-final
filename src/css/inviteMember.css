@@ -17,9 +17,9 @@
     justify-content: center; /* Centrar el contenido */
 }
 
-h2 {
+.invite-member-title {
     color: #791717;
-    background-color: #edcb7c;
+    background-color: beige;
     border-radius: 5px;
     padding: 3px 6px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);

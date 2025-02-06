@@ -65,8 +65,8 @@ const InviteMember = () => {
 
   return (
     <div className="invite-member-container">
-      <h2>{currentWorkspace ? `Grupo de amigos: ${currentWorkspace.name}` : "Cargando grupo..."}</h2>
-      <h2>Invitar amigo al grupo</h2>
+      <h2 className="invite-member-title">{currentWorkspace ? `Grupo de amigos: ${currentWorkspace.name}` : "Cargando grupo..."}</h2>
+      <h2 className="invite-member-advice">Invitar amigo al grupo</h2>
       <form onSubmit={handleInvite}>
         <label>
           Correo electrónico:
