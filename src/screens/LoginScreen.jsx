@@ -77,14 +77,14 @@ const LoginScreen = () => {
             <h1>CHAT DE AMIGOS</h1>
             {errorMessage && <p className='error-message'>{errorMessage}</p>} {/* Muestra el mensaje de error */}
             <form onSubmit={handleSubmitForm} className='login-form'>
-                <div>
-                    <label htmlFor="email">Ingresa tu email:</label>
+                <div className='login-input-container'>
+                    <label htmlFor="email" className='login-label'>Ingresa tu email:</label>
                     <input name='email' id='email' placeholder='joedoe@gmail' value={form_state.email} onChange={handleChangeInput} />
                     {errores.email?.map((error, index) => <p key={index} className='error'>{error}</p>)}
                 </div>
 
-                <div>
-                    <label htmlFor="password">Ingresa tu contraseña:</label>
+                <div className='login-input-container' >
+                    <label htmlFor="password"className='login-label' >Ingresa tu contraseña:</label>
                     <input type='password' name='password' id='password' value={form_state.password} onChange={handleChangeInput} />
                     {errores.password?.map((error, index) => <p key={index} className='error'>{error}</p>)}
                 </div>
