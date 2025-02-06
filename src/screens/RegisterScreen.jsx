@@ -58,25 +58,25 @@ const RegisterScreen = () => {
 
     return (
         <div>
-            <h1>Registro</h1>
+            <h1 className='register-title'>Registro</h1>
             {successMessage && <p className='success-message'>{successMessage}</p>} {/* Muestra el mensaje de éxito */}
             {errorMessage && <p className='error-message'>{errorMessage}</p>} {/* Muestra el mensaje de error */}
 
             <form onSubmit={handleSubmitForm}>
                 <div className='item-register-container'>
-                    <label htmlFor="username">Ingresa tu nombre de usuario:</label>
+                    <label htmlFor="username" className='label-register'>Ingresa tu nombre de usuario:</label>
                     <input name='username' id='username' value={form_state.username} onChange={handleChangeInput} />
                     {errores.username?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
                 </div>
 
                 <div className='item-register-container'>
-                    <label htmlFor="email">Ingresa tu email:</label>
+                    <label htmlFor="email"className='label-register' >Ingresa tu email:</label>
                     <input name='email' id='email' placeholder='joedoe@gmail' value={form_state.email} onChange={handleChangeInput} />
                     {errores.email?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
                 </div>
 
                 <div className='item-register-container'>
-                    <label htmlFor="password">Ingresa tu contraseña:</label>
+                    <label htmlFor="password" className='label-register'>Ingresa tu contraseña:</label>
                     <input type='password' name='password' id='password' value={form_state.password} onChange={handleChangeInput} />
                     <button type='submit' disabled={errores.email.length > 0 || errores.password.length || !form_state.email || !form_state.password}>Crear usuario</button>
                     {errores.password?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
