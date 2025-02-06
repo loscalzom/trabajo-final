@@ -29,10 +29,21 @@ const Channel = ({ workspace_id, channel_id }) => {
         console.log(responseData);
     };
 
+    // Verifica que channel_data y channel_data.data estén definidos
+    if (channel_loading) {
+        return <h3>Cargando canal...</h3>;
+    }
+
+    if (channel_error) {
+        return <h3>Error al cargar el canal: {channel_error.message}</h3>;
+    }
+
     return (
         <div className="channel-container">
             <h2>Canal: {channel_data?.data?.name}</h2>
-            {channel_loading ? <h3>Cargando canal...</h3> : (
+            
+            {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
+            {channel_data?.data?.messages?.length > 0 ? (
                 <div>
                     {channel_data.data.messages.map(message => (
                         <div key={message._id}>
@@ -41,6 +52,8 @@ const Channel = ({ workspace_id, channel_id }) => {
                         </div>
                     ))}
                 </div>
+            ) : (
+                <p>No hay mensajes en este canal.</p>
             )}
 
             {/* Formulario para enviar mensaje */}
