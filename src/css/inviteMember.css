@@ -14,7 +14,8 @@
     min-height: 120px; /* Añadir un mínimo para que no se haga demasiado pequeño en pantallas pequeñas */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrar el contenido */
+    justify-content: center;
+    align-items: center; /* Centrar el contenido */
 }
 
 .invite-member-title {
@@ -28,7 +29,7 @@
 }
 .invite-member-advice {
     color: #791717;
-    background-color: rgb(213, 240, 122);
+    background-color: rgb(213, 192, 163);
     border-radius: 5px;
     padding: 3px 6px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
@@ -46,9 +47,10 @@ form {
     margin-top: 10px;
 }
 
-label {
+.user-to-invite {
     font-size: 1rem;
     color: #791717;
+
 }
 
 input {

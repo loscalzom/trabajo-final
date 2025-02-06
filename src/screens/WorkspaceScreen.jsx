@@ -60,7 +60,7 @@ const WorkspaceScreen = () => {
 
             <div className="workspace-content">
                 <div>
-                    {channel_id ? <Channel workspace_id={workspace_id} channel_id={channel_id} /> : <h2>Aún no has seleccionado ningún tema</h2>}
+                    {channel_id ? <Channel workspace_id={workspace_id} channel_id={channel_id} /> : <h2 className='tema-advice'>Aún no has seleccionado ningún tema</h2>}
                 </div>
 
                 <div>
@@ -75,7 +75,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
     return (
         <div className='channels-container'>
             <div className='channels-list-container'>
-                <div><h2>Temas disponibles</h2></div>
+                <h2 className='tema-title'>Temas disponibles</h2>
                 <div className='channel-items'>
                     {/* Solo muestra los canales si existen, de lo contrario muestra el mensaje */}
                     {channel_list && channel_list.length > 0 ? (
