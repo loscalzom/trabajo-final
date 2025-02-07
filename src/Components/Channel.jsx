@@ -12,6 +12,8 @@ const Channel = () => {
     console.log("Workspace ID:", workspace_id);
     console.log("Channel ID:", channel_id);
 
+    const channelName = sessionStorage.getItem('channel_name');
+
     const { data: channel_data, loading: channel_loading, error: channel_error } = useFetch(
         ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`, 
         {
