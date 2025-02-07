@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import { getAuthenticatedHeaders } from '../fetching/customHeaders';
@@ -6,8 +6,8 @@ import useForm from '../hooks/useForm';
 import ENVIROMENT from '../utils/constants/enviroment';
 
 const Channel = () => {
-    const { workspace_id, channel_id } = useParams();  
-    const navigate = useNavigate();  
+    const { workspace_id, channel_id } = useParams();  // Asegúrate de que useParams esté extrayendo correctamente los parámetros
+    const navigate = useNavigate();  // Para redirigir al usuario
 
     console.log("Workspace ID:", workspace_id);
     console.log("Channel ID:", channel_id);
@@ -19,12 +19,7 @@ const Channel = () => {
             headers: getAuthenticatedHeaders()
         }
     );
-
-    // Imprime el contenido de channel_data para ver la estructura real
-    useEffect(() => {
-        console.log("Channel Data:", channel_data);
-    }, [channel_data]);
-
+    console.log(channel_data);
     const { form_state, handleChangeInput } = useForm({ content: "" });
 
     const handleSubmitNewMessage = async (e) => {
@@ -36,11 +31,6 @@ const Channel = () => {
         });
         const responseData = await response.json();
         console.log(responseData);
-
-        // Si el mensaje se envía correctamente, actualiza la lista de mensajes
-        if (responseData.ok) {
-            setMessages([...messages, responseData.data]); // Agregar el nuevo mensaje a la lista
-        }
     };
 
     // Verifica que los datos del canal se hayan cargado correctamente
@@ -52,47 +42,41 @@ const Channel = () => {
         return <h3>Error al cargar el canal: {channel_error.message}</h3>;
     }
 
-    // Verifica si channel_data y los mensajes están presentes
-    if (!channel_data || !channel_data.data || !channel_data.data.messages) {
-        return <h3>No se encontraron datos del canal.</h3>;
-    }
-
     return (
         <div className="channel-container">
             {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
-            <h2 className="channel-title">{channel_data?.data?.name || "Canal no disponible"}</h2>
+            <h2>{channel_data?.data?.name || "Canal no disponible"}</h2>
             
             {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
             {channel_data?.data?.messages?.length > 0 ? (
-                <div className="messages-container">
+                <div>
                     {channel_data.data.messages.map(message => (
-                        <div key={message._id} className="message-item">
-                            <h4 className="message-author">Autor: {message.sender.username}</h4>
-                            <p className="message-content">{message.content}</p>
+                        <div key={message._id}>
+                            <h4>Autor: {message.sender.username}</h4>
+                            <p>{message.content}</p>
                         </div>
                     ))}
                 </div>
             ) : (
-                <p className="no-messages">No hay mensajes en este canal.</p>
+                <p>No hay mensajes en este canal.</p>
             )}
 
             {/* Formulario para enviar mensaje */}
             <div className="send-message-form">
                 <form onSubmit={handleSubmitNewMessage}>
                     <input
-                        className="message-input"
                         placeholder="Escribe un mensaje"
                         type="text"
                         name="content"
                         onChange={handleChangeInput}
                         value={form_state.content}
                     />
-                    <button type="submit" className="send-button">Enviar</button>
+                    <button type="submit">Enviar</button>
                 </form>
             </div>
 
             {/* Botón para volver al workspace o a la página anterior */}
-            <button onClick={() => navigate(-1)} className="back-button">Volver</button>
+            <button onClick={() => navigate(-1)}>Volver</button>
         </div>
     );
 };
