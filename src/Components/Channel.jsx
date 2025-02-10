@@ -78,7 +78,7 @@ const Channel = () => {
             </div>
 
             {/* Botón para volver al workspace o a la página anterior */}
-            <button onClick={() => navigate(-1)}>Volver</button>
+            <button className='volver' onClick={() => navigate(-1)}>Volver</button>
         </div>
     );
 };

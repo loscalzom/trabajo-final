@@ -5,10 +5,12 @@
     padding: 10px;         /* Espaciado interno */
     border: 1px solid #ccc;   /* Borde sutil */
     border-radius: 5px;   
-    max-width: 400px; 
+    max-width: 900px; 
+    width: 100%;
     display: flex  ;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto  ;
 }
 
 .message-item {
@@ -17,4 +19,8 @@
 
 .send-message-form {
     margin-top: 20px;      /* Separación con el formulario */
+}
+button.volver {
+    margin-top: 20px;
+    align-self: center; /* Centrar el botón */
 }
