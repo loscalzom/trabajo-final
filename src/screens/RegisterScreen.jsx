@@ -22,6 +22,9 @@ const RegisterScreen = () => {
             console.log(data);
 
             if (res.ok) {
+                // El backend envió correctamente el verificationToken
+                console.log("Verification token recibido:", data.verificationToken);
+
                 setSuccessMessage('✅ Registro exitoso. Por favor, revisa tu correo electrónico para verificar tu cuenta.');
                 setErrorMessage('');
             } else {
@@ -47,6 +50,7 @@ const RegisterScreen = () => {
         password: []
     };
 
+    // Validaciones de los campos del formulario
     form_state.email && form_state.email.length > 30 && errores.email.push("El límite de caracteres es 30");
     form_state.email && form_state.email.length < 5 && errores.email.push("El mínimo de caracteres es 5");
 
@@ -70,7 +74,7 @@ const RegisterScreen = () => {
                 </div>
 
                 <div className='item-register-container'>
-                    <label htmlFor="email"className='label-register' >Ingresa tu email:</label>
+                    <label htmlFor="email" className='label-register'>Ingresa tu email:</label>
                     <input name='email' id='email' placeholder='joedoe@gmail' value={form_state.email} onChange={handleChangeInput} />
                     {errores.email?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
                 </div>
@@ -87,3 +91,4 @@ const RegisterScreen = () => {
 }
 
 export default RegisterScreen;
+
