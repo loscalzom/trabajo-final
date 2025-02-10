@@ -11,7 +11,6 @@
     opacity: 0.90;
 }
 
-/* Títulos dentro del componente WorkspaceScreen */
 h2 {
     color: #791717;
     background-color: #edcb7c;
@@ -22,14 +21,13 @@ h2 {
 
 .tema-advice {
     color: #791717;
-    background-color:#f4b764;
+    background-color: #f4b764;
     border-radius: 5px;
     padding: 3px 6px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     font-size: 1rem;
     margin-bottom: 8px;
-    max-width:300px ;
-    
+    max-width: 300px;
 }
 
 .tema-title {
@@ -42,27 +40,24 @@ h2 {
     margin-bottom: 8px;
 }
 
-/* Estilo para la lista de canales */
 .channel-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
-    
-
 }
 
 .channel-items a {
-    color: #791717 !important;  /* Color uniforme para todos los enlaces */
+    color: #791717 !important;
     text-decoration: none;
 }
 
 .channel-items a:hover {
-    color: #da4834;  /* Color cuando pasas el mouse */
+    color: #da4834;
 }
 
 .channel-items a:visited {
-    color: #791717 !important;  /* Evita que los enlaces visitados cambien de color */
+    color: #791717 !important;
 }
 
 .channel-item {
@@ -81,7 +76,6 @@ h2 {
     color: #da4834;
 }
 
-/* Estilo para el formulario de mensajes */
 form {
     display: flex;
     flex-direction: column;
@@ -115,12 +109,12 @@ button {
 
 button:hover {
     background-color: #b52d1e;
- 
+
 }
 
 .button-create-channel {
-    margin-left: 10px ;}
-
+    margin-left: 10px;
+}
 
 .messages-container {
     display: flex;
@@ -133,16 +127,16 @@ button:hover {
     background-color: #ccc;
 }
 
-
 .channel-message {
     margin-top: 10px;
 }
+
 .channel-items {
     padding: 10px;
-   max-height: 100px;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
+    max-height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 h4 {
@@ -152,18 +146,16 @@ h4 {
 }
 
 p {
-    color:#791717;
+    color: #791717;
     font-size: 1rem;
-   margin: 0 auto;
-        text-align: center;
-     
-    }
-    
+    margin: 0 auto;
+    text-align: center;
 
+}
 
-    .home-button {
-        background-color: #f44336; 
-      }
+.home-button {
+    background-color: #f44336;
+}
 
 .workspace-content {
     display: flex;
@@ -171,13 +163,13 @@ p {
     justify-content: space-between;
     align-items: center;
 }
- 
 
 .channels-container {
     display: 'flex';
     flex-direction: column;
     gap: '8px';
 }
+
 .channels-list-container {
     display: 'flex';
     flex-direction: column;

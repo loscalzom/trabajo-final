@@ -1,25 +1,20 @@
 import { useState } from "react";
 
 const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
-    const [channelName, setChannelName] = useState("");
-
-    console.log("Workspace ID:", workspace_id);
+    const [channelName, setChannelName] = useState("")
 
     const handleCreateChannel = async () => {
-        console.log("Se ha llamado a handleCreateChannel");
 
         if (!channelName.trim()) {
-            return alert("El nombre del tema no puede estar vacío");
+            return alert("El nombre del tema no puede estar vacío")
         }
 
-        console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
-        const apiUrl = `${import.meta.env.VITE_API_URL}/api/channel/${workspace_id}`;
-        console.log("URL construida:", apiUrl);
+        const apiUrl = `${import.meta.env.VITE_API_URL}/api/channel/${workspace_id}`
 
         try {
-            const token = sessionStorage.getItem("token");
+            const token = sessionStorage.getItem("token")
             if (!token) {
-                throw new Error("No se encontró el token de autenticación en localStorage.");
+                throw new Error("No se encontró el token de autenticación en localStorage.")
             }
 
             const response = await fetch(apiUrl, {
@@ -31,33 +26,31 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
                 body: JSON.stringify({ name: channelName })
             });
 
-            console.log("Estado de la respuesta:", response.status);
 
             if (!response.ok) {
-                const responseText = await response.text();
-                throw new Error(`Error: ${response.status} ${response.statusText} - ${responseText}`);
+                const responseText = await response.text()
+                throw new Error(`Error: ${response.status} ${response.statusText} - ${responseText}`)
             }
 
-            const data = await response.json();
-            console.log("Data:", data);
+            const data = await response.json()
 
             if (data.ok) {
-                onChannelCreated(data.data.new_channel); // Actualizar lista de canales
-                setChannelName(""); // Limpiar input
+                onChannelCreated(data.data.new_channel)
+                setChannelName("")
             } else {
-                alert("Error al crear el tema: " + data.message);
+                alert("Error al crear el tema: " + data.message)
             }
         } catch (error) {
-            console.error("Error al crear el tema:", error);
-            alert("Hubo un problema al crear el tema. Revisa la consola para más detalles.");
+
+            alert("Hubo un problema al crear el tema. Revisa la consola para más detalles.")
         }
     };
 
     return (
         <div style={{ marginBottom: "16px" }}>
-            <input 
-                type="text" 
-                value={channelName} 
+            <input
+                type="text"
+                value={channelName}
                 onChange={(e) => setChannelName(e.target.value)}
                 placeholder="Nuevo tema"
             />

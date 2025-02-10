@@ -6,37 +6,37 @@ import { getAuthenticatedHeaders } from "../fetching/customHeaders";
 import '../css/inviteMember.css'
 
 const InviteMember = () => {
-  const { workspace, setWorkspace } = useContext(AuthContext);
-  const { workspace_id } = useParams();
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  const [message, setMessage] = useState("");
-  const [currentWorkspace, setCurrentWorkspace] = useState(workspace);
+  const { workspace, setWorkspace } = useContext(AuthContext)
+  const { workspace_id } = useParams()
+  const [email, setEmail] = useState("")
+  const [error, setError] = useState("")
+  const [message, setMessage] = useState("")
+  const [currentWorkspace, setCurrentWorkspace] = useState(workspace)
 
   useEffect(() => {
-    const fetchWorkspace = async () => { 
+    const fetchWorkspace = async () => {
       try {
         const response = await fetch(`${ENVIROMENT.API_URL}/api/workspace/${workspace_id}`, {
           method: "GET",
           headers: getAuthenticatedHeaders(),
         });
-        const data = await response.json();
+        const data = await response.json()
         if (data.ok) {
-          console.log("Workspace data:", data.data);
+          console.log("Workspace data:", data.data)
 
-          setCurrentWorkspace(data.data); // Actualizar el estado local del workspace
-          setWorkspace(data.data); // Actualizar el estado del workspace en el contexto
-          sessionStorage.setItem("workspace", JSON.stringify(data.data)); // Actualizar sessionStorage
+          setCurrentWorkspace(data.data)
+          setWorkspace(data.data)
+          sessionStorage.setItem("workspace", JSON.stringify(data.data))
         } else {
-          setError(data.message);
+          setError(data.message)
         }
       } catch (err) {
-        setError("Hubo un error al obtener el workspace");
+        setError("Hubo un error al obtener el workspace")
       }
     };
 
     fetchWorkspace();
-  }, [workspace_id, setWorkspace]);
+  }, [workspace_id, setWorkspace])
 
   const handleInvite = async (event) => {
     event.preventDefault();
@@ -51,17 +51,17 @@ const InviteMember = () => {
         body: JSON.stringify({ email }),
       });
 
-      const data = await response.json();
+      const data = await response.json()
 
       if (data.ok) {
-        setMessage("Usuario invitado correctamente");
+        setMessage("Usuario invitado correctamente")
       } else {
         setError(data.message);
       }
     } catch (err) {
-      setError("Hubo un error al invitar al usuario");
+      setError("Hubo un error al invitar al usuario")
     }
-  };
+  }
 
   return (
     <div className="invite-member-container">

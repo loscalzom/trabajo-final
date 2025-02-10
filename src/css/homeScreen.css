@@ -1,45 +1,41 @@
-/* Contenedor principal */
 .home-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alinea los elementos arriba */
+    justify-content: flex-start;
     align-items: center;
-    height: 100vh; /* Ocupa toda la pantalla */
+    height: 100vh;
     padding: 10px;
     box-sizing: border-box;
-    overflow: hidden; /* Evita el scroll en toda la página */
+    overflow: hidden;
 }
 
-/* Contenedor de los espacios de trabajo */
 .workspace-container {
     background-color: beige;
-    padding: 10px; /* Reduce el padding */
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 500px;
     text-align: center;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     opacity: 0.90;
 }
 
-/* Ajustar la altura de cada workspace */
 .workspace-item {
     background-color: white;
-    padding: 8px; /* Reduce el padding */
+    padding: 8px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 6px 0;
-    font-size: 0.9rem; /* Hace el texto más pequeño */
+    font-size: 0.9rem;
 }
 
-/* Ajuste de los botones */
 .workspace-container a {
     display: inline-block;
     text-decoration: none;
     color: white;
     background-color: #da4834;
-    padding: 6px 10px; /* Reduce la altura del botón */
+    padding: 6px 10px;
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -50,10 +46,9 @@
     background-color: #b52d1e;
 }
 
-/* Título principal */
 h1 {
     text-align: center;
-    color: #791717; /* Este es el color que quieres usar */
+    color: #791717;
     background-color: #edcb7c;
     border-radius: 5px;
     padding: 10px 20px;
@@ -61,27 +56,27 @@ h1 {
     opacity: 0.90;
 }
 
-/* Asegúrate de que h2, h3 y span tengan el mismo color */
-h2, h3, span {
-    color: #791717; /* Color igual al h1 */
+h2,
+h3,
+span {
+    color: #791717;
 }
 
-/* Estilos para h2, h3 y span (puedes agregar más propiedades si es necesario) */
-h2, h3 {
-    background-color:#edcb7c;
+h2,
+h3 {
+    background-color: #edcb7c;
     border-radius: 5px;
     padding: 10px 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Contenedor que tiene el scroll (solo los items de los workspaces) */
-.workspace-container > div {
-    max-height: 350px; /* Limitar la altura de los workspace items */
-    overflow-y: auto; /* Permite scroll solo en esta área */
+.workspace-container>div {
+    max-height: 350px;
+    overflow-y: auto;
 }
 
 @media (max-width: 400px) {
     h1 {
-        font-size: 1.5em; 
+        font-size: 1.5em;
     }
 }

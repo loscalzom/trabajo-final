@@ -1,6 +1,4 @@
-/* inviteMember.css */
 
-/* Estilos generales para el componente InviteMember */
 .invite-member-container {
     background-color: #f7f7f7;
     padding: 20px;
@@ -10,12 +8,12 @@
     max-width: 400px;
     margin: 20px auto;
     text-align: center;
-    height: 35vh; /* Reduce la altura a la mitad */
-    min-height: 120px; /* Añadir un mínimo para que no se haga demasiado pequeño en pantallas pequeñas */
+    height: 35vh; 
+    min-height: 120px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Centrar el contenido */
+    align-items: center; 
 }
 
 .invite-member-title {
@@ -37,9 +35,6 @@
     margin-bottom: 8px;
 }
 
-
-
-/* Estilo del formulario de invitación */
 form {
     display: flex;
     flex-direction: column;
@@ -50,7 +45,6 @@ form {
 .user-to-invite {
     font-size: 1rem;
     color: #791717;
-
 }
 
 input {
@@ -81,7 +75,6 @@ button:hover {
     background-color: #b52d1e;
 }
 
-/* Mensajes de éxito o error */
 p {
     color: #791717;
     font-size: 1rem;

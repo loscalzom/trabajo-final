@@ -3,8 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-   
+    height: 100vh; 
     padding: 20px;
     box-sizing: border-box;
   } 
@@ -30,8 +29,7 @@
     
   }
   
-  /* Estilo para los inputs */
-  .login-form input {
+    .login-form input {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
@@ -41,8 +39,7 @@
     box-sizing: border-box;
   }
   
-  /* Estilo para los botones */
-  .login-form button {
+    .login-form button {
     width: 100%;
     padding: 12px;
     background-color: #da4834;
@@ -59,8 +56,7 @@
     cursor: not-allowed;
   }
   
-  /* Estilo para los enlaces */
-  .login-form a {
+    .login-form a {
     text-decoration: none;
     color: #007BFF;
   }
@@ -79,8 +75,7 @@
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin-bottom: 15px;
-   
- 
+    
   }
   .error {
     color: red;

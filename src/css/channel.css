@@ -1,11 +1,11 @@
 .messages-container {
-    height: 50vh;          /* 65% de la altura de la ventana */
-    overflow-y: auto;      /* Habilitar scroll vertical si el contenido es mayor */
-    background-color: #f4f4f4;  /* Fondo gris claro */
-    padding: 10px;         /* Espaciado interno */
-    border: 1px solid #ccc;   /* Borde sutil */
+    height: 50vh;          
+    overflow-y: auto;     
+    background-color: #f4f4f4;  
+    padding: 10px;         
+    border: 1px solid #ccc;  
     border-radius: 5px;   
-    max-width: 900px; 
+    max-width: 80%; 
     width: 100%;
     display: flex  ;
     flex-direction: column;
@@ -26,7 +26,7 @@
 }
 button.volver {
     margin-top: 20px;
-    align-self: center; /* Centrar el botón */
+    align-self: center; 
 }
 
 .autor {

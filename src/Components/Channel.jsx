@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import { getAuthenticatedHeaders } from '../fetching/customHeaders';
@@ -7,21 +7,20 @@ import ENVIROMENT from '../utils/constants/enviroment';
 import '../css/channel.css';
 
 const Channel = () => {
-    const { workspace_id, channel_id } = useParams();
-    const navigate = useNavigate();
-    const [reload, setReload] = useState(false); // Estado para forzar la recarga
+    const { workspace_id, channel_id } = useParams()
+    const navigate = useNavigate()
+    const [reload, setReload] = useState(false)
 
-    // Fetch de los datos del canal y mensajes, que se ejecuta cada vez que cambia "reload"
     const { data: channel_data, loading: channel_loading, error: channel_error } = useFetch(
         ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`,
         {
             method: 'GET',
             headers: getAuthenticatedHeaders()
         },
-        [reload] // Dependencia para recargar los datos cuando "reload" cambia
-    );
+        [reload] 
+    )
 
-    const { form_state, handleChangeInput } = useForm({ content: "" });
+    const { form_state, handleChangeInput } = useForm({ content: "" })
 
     const handleSubmitNewMessage = async (e) => {
         e.preventDefault();
@@ -32,17 +31,17 @@ const Channel = () => {
         });
 
         if (response.ok) {
-            setReload(prev => !prev); // Cambia el estado para forzar la recarga de mensajes
-            handleChangeInput({ target: { name: "content", value: "" } }); // Limpia el formulario
+            setReload(prev => !prev)
+            handleChangeInput({ target: { name: "content", value: "" } })
         }
     };
 
     if (channel_loading) {
-        return <h3>Cargando tema...</h3>;
+        return <h3>Cargando tema...</h3>
     }
 
     if (channel_error) {
-        return <h3>Error al cargar el tema: {channel_error.message}</h3>;
+        return <h3>Error al cargar el tema: {channel_error.message}</h3>
     }
 
     return (
@@ -80,4 +79,4 @@ const Channel = () => {
     );
 };
 
-export default Channel;
+export default Channel
