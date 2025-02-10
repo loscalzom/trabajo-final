@@ -9,7 +9,7 @@ import CreateChannelForm from '../Components/CreateChannelForm';
 import '../css/workspaceScreen.css';
 
 const WorkspaceScreen = () => {
-    const { workspace_id, channel_id } = useParams();
+    const { workspace_id } = useParams();
     console.log("Workspace ID:", workspace_id, "Channel ID:", channel_id);
     const { setWorkspace } = useContext(AuthContext); 
     const [channels, setChannels] = useState([]);
