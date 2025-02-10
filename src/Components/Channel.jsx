@@ -4,6 +4,7 @@ import { useFetch } from '../hooks/useFetch';
 import { getAuthenticatedHeaders } from '../fetching/customHeaders';
 import useForm from '../hooks/useForm';
 import ENVIROMENT from '../utils/constants/enviroment';
+import '../css/channel.css'
 
 const Channel = () => {
     const { workspace_id, channel_id } = useParams();  // Asegúrate de que useParams esté extrayendo correctamente los parámetros
@@ -46,23 +47,22 @@ const Channel = () => {
 
     return (
         <div className="channel-container">
-            {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
-            <h2>{channel_data?.data?.channel?.name || "Tema no disponible"}</h2>
-            
-            {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
-            {channel_data?.data?.messages?.length > 0 ? (
-                <div>
-                    {channel_data.data.messages.map(message => (
-                        <div key={message._id}>
-                            <h4>Autor: {message.sender.username}</h4>
-                            <p>{message.content}</p>
-                        </div>
-                    ))}
-                </div>
-            ) : (
-                <p>No hay mensajes en este tema.</p>
-            )}
-
+        {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
+        <h2>{channel_data?.data?.channel?.name || "Tema no disponible"}</h2>
+        
+        {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
+        {channel_data?.data?.messages?.length > 0 ? (
+            <div className="messages-container">
+                {channel_data.data.messages.map(message => (
+                    <div key={message._id} className="message-item">
+                        <h4>Autor: {message.sender.username}</h4>
+                        <p>{message.content}</p>
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <p>No hay mensajes en este tema.</p>
+        )}
             {/* Formulario para enviar mensaje */}
             <div className="send-message-form">
                 <form onSubmit={handleSubmitNewMessage}>

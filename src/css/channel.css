@@ -1,0 +1,16 @@
+.messages-container {
+    height: 65vh;          /* 65% de la altura de la ventana */
+    overflow-y: auto;      /* Habilitar scroll vertical si el contenido es mayor */
+    background-color: #f4f4f4;  /* Fondo gris claro */
+    padding: 10px;         /* Espaciado interno */
+    border: 1px solid #ccc;   /* Borde sutil */
+    border-radius: 5px;    /* Bordes redondeados */
+}
+
+.message-item {
+    margin-bottom: 15px;   /* Separación entre mensajes */
+}
+
+.send-message-form {
+    margin-top: 20px;      /* Separación con el formulario */
+}
