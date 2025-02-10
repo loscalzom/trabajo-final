@@ -12,7 +12,7 @@ const Channel = () => {
     console.log("Workspace ID:", workspace_id);
     console.log("Channel ID:", channel_id);
 
-    const channelName = sessionStorage.getItem('channel_name');
+    
 
     const { data: channel_data, loading: channel_loading, error: channel_error } = useFetch(
         ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`, 
@@ -37,17 +37,17 @@ const Channel = () => {
 
     // Verifica que los datos del canal se hayan cargado correctamente
     if (channel_loading) {
-        return <h3>Cargando canal...</h3>;
+        return <h3>Cargando tema...</h3>;
     }
 
     if (channel_error) {
-        return <h3>Error al cargar el canal: {channel_error.message}</h3>;
+        return <h3>Error al cargar el tema: {channel_error.message}</h3>;
     }
 
     return (
         <div className="channel-container">
             {/* Asegúrate de que channel.name esté disponible antes de mostrarlo */}
-            <h2>{channel_data?.data?.name || "Canal no disponible"}</h2>
+            <h2>{channel_data?.data?.name || "Tema no disponible"}</h2>
             
             {/* Verifica que los mensajes estén disponibles antes de renderizarlos */}
             {channel_data?.data?.messages?.length > 0 ? (
@@ -60,7 +60,7 @@ const Channel = () => {
                     ))}
                 </div>
             ) : (
-                <p>No hay mensajes en este canal.</p>
+                <p>No hay mensajes en este tema.</p>
             )}
 
             {/* Formulario para enviar mensaje */}
