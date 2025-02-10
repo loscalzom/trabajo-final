@@ -18,7 +18,8 @@
 }
 
 .send-message-form {
-    margin-top: 20px;      /* Separación con el formulario */
+    margin-top: 20px;  
+    display: flex;    /* Separación con el formulario */
 }
 button.volver {
     margin-top: 20px;
