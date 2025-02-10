@@ -10,6 +10,7 @@ import '../css/workspaceScreen.css';
 
 const WorkspaceScreen = () => {
     const { workspace_id, channel_id } = useParams();
+    console.log("Workspace ID:", workspace_id, "Channel ID:", channel_id);
     const { setWorkspace } = useContext(AuthContext); 
     const [channels, setChannels] = useState([]);
 
@@ -19,6 +20,8 @@ const WorkspaceScreen = () => {
     );
 
     useEffect(() => {
+        console.log("Canales recibidos:", channels_data);
+
         if (channels_data?.data?.channels) {
             setChannels(channels_data.data.channels);
         }
@@ -76,6 +79,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
                     {channel_list.length > 0 ? (
                         channel_list.map(channel => (
                             <div key={channel._id}>
+                                {console.log("Canal ID:", channel._id)}
                                 <Link to={`/workspace/${workspace_id}/${channel._id}`} onClick={() => onWorkspaceClick(workspace_id)}>
                                     {` #${channel.name}`}
                                 </Link>
