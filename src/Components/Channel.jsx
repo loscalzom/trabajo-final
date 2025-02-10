@@ -55,8 +55,8 @@ const Channel = () => {
             <div className="messages-container">
                 {channel_data.data.messages.map(message => (
                     <div key={message._id} className="message-item">
-                        <h4>Autor: {message.sender.username}</h4>
-                        <p>{message.content}</p>
+                        <h4 className='autor'>Autor: {message.sender.username}</h4>
+                        <p className='message-content'>{message.content}</p>
                     </div>
                 ))}
             </div>

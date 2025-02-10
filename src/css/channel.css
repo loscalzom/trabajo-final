@@ -24,3 +24,10 @@ button.volver {
     margin-top: 20px;
     align-self: center; /* Centrar el botón */
 }
+
+.autor {
+    align-self: flex-start;
+}
+.message-content {
+    align-self: flex-start;
+}
