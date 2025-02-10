@@ -14,12 +14,15 @@
 }
 
 .message-item {
-    margin-bottom: 15px;   /* Separación entre mensajes */
+    margin-bottom: 15px;  
+    width: 90%; 
+    padding: 10px;
 }
 
 .send-message-form {
     margin-top: 20px;  
-    display: flex;    /* Separación con el formulario */
+    display: flex;  
+    align-items: center; 
 }
 button.volver {
     margin-top: 20px;
@@ -30,5 +33,13 @@ button.volver {
     align-self: flex-start;
 }
 .message-content {
-    align-self: flex-start;
+    max-width: 100vh;
+    margin: 0 auto;
+    text-align: center;
+}
+.channel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
