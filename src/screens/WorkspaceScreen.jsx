@@ -126,12 +126,18 @@ const Channel = ({ workspace_id, channel_id }) => {
 
     return (
         <div>
-            {channel_loading ? <h2>Cargando tema...</h2> : channel_data.data.messages.map(message => (
-                <div key={message._id}>
-                    <h4>Autor: {message.sender.username}</h4>
-                    <p>{message.content}</p>
-                </div>
-            ))}
+             {channel_loading ? (
+            <h2>Cargando tema...</h2>
+        ) : (
+            <div className="messages-container">
+                {channel_data.data.messages.map(message => (
+                    <div key={message._id} className="message-item">
+                        <h4>Autor: {message.sender.username}</h4>
+                        <p>{message.content}</p>
+                    </div>
+                ))}
+            </div>
+        )}
             <form onSubmit={handleSubmitNewMessage}>
                 <input placeholder='Enviar mensaje' type='text' name='content' onChange={handleChangeInput} value={form_state.content} />
                 <button type='submit'>Enviar</button>
