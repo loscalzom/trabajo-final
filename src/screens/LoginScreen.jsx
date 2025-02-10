@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import useForm from '../hooks/useForm';
 import ENVIROMENT from '../utils/constants/enviroment';
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,8 +12,12 @@ const LoginScreen = () => {
 
     const [errorMessage, setErrorMessage] = useState(''); // Estado para el mensaje de error
 
-    const url = new URLSearchParams(window.location.search);
-    if (url.get("verified")) { alert("Cuenta verificada"); }
+    useEffect(() => {
+        const url = new URLSearchParams(window.location.search);
+        if (url.get("verified")) {
+            alert("Cuenta verificada");
+        }
+    }, []); // Se ejecuta solo una vez, cuando el componente se monta
 
     const handleSubmitForm = async (event) => {
         event.preventDefault();
