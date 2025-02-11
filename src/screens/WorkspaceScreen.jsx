@@ -13,7 +13,6 @@ const WorkspaceScreen = () => {
     console.log("Workspace ID:", workspace_id);
     const { setWorkspace } = useContext(AuthContext); 
 
-    console.log("Canales recibidos de la API:", channels_data);
     const [channels, setChannels] = useState([]);
 
     const { data: channels_data, error: channels_error, loading: channels_loading } = useFetch(
