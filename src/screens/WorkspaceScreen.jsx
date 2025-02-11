@@ -23,6 +23,7 @@ const WorkspaceScreen = () => {
         console.log("Canales recibidos:", channels_data);
 
         if (channels_data?.data?.channels) {
+            console.log("Asignando canales:", channels_data.data.channels);
             setChannels(channels_data.data.channels);
         }
     }, [channels_data]);
@@ -44,6 +45,7 @@ const WorkspaceScreen = () => {
     };
 
     const handleNewChannel = (newChannel) => {
+        console.log("Nuevo canal recibido:", newChannel)
         setChannels([...channels, newChannel]);
     };
 
@@ -71,6 +73,8 @@ const WorkspaceScreen = () => {
 };
 
 const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelCreated }) => {
+
+    console.log("Lista de canales en ChannelsList:", channel_list);
     return (
         <div className='channels-container'>
             <div className='channels-list-container'>
@@ -78,7 +82,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
                 <div className='channel-items'>
                     {channel_list.length > 0 ? (
                         channel_list.map(channel => (
-                            <div key={channel.name}>
+                            <div key={channel._id}>
                                 {console.log("Canal ID:", channel._id)}
                                 <Link to={`/workspace/${workspace_id}/${channel._id}`} onClick={() => onWorkspaceClick(workspace_id)}>
                                     {` #${channel.name}`}
