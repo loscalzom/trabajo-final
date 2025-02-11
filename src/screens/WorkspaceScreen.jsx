@@ -78,7 +78,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
                 <div className='channel-items'>
                     {channel_list.length > 0 ? (
                         channel_list.map(channel => (
-                            <div key={channel._id}>
+                            <div key={channel.name}>
                                 {console.log("Canal ID:", channel._id)}
                                 <Link to={`/workspace/${workspace_id}/${channel._id}`} onClick={() => onWorkspaceClick(workspace_id)}>
                                     {` #${channel.name}`}
