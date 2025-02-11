@@ -24,13 +24,8 @@ if(data.ok){
 
         } catch (error) {
             console.error("Error al crear usuario", error)
-
         }
-
-
     }
-
-
 
     return (
         <div className="login-container">

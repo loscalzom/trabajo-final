@@ -56,7 +56,7 @@ const InviteMember = () => {
       if (data.ok) {
         setMessage("Usuario invitado correctamente")
       } else {
-        setError(data.message);
+        setError(data.message)
       }
     } catch (err) {
       setError("Hubo un error al invitar al usuario")

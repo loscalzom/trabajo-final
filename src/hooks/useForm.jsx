@@ -13,7 +13,6 @@ const useForm=(form_initial_state)=>{
  }
  return {form_state, handleChangeInput}
 
-
 }
 
 export default useForm

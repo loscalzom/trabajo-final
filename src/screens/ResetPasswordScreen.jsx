@@ -6,26 +6,26 @@ import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import '../css/loginScreen.css';
 
 const ResetPasswordScreen = () => {
-    const url = new URLSearchParams(window.location.search);
-    const reset_token = url.get('reset_token');
-    const { form_state, handleChangeInput } = useForm({ password: "" });
+    const url = new URLSearchParams(window.location.search)
+    const reset_token = url.get('reset_token')
+    const { form_state, handleChangeInput } = useForm({ password: "" })
 
-    const [message, setMessage] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState('')
+    const [loading, setLoading] = useState(false)
 
-    const navigate = useNavigate(); // Define useNavigate
+    const navigate = useNavigate()
 
     const handleSubmitResetPassword = async (event) => {
-        event.preventDefault();
+        event.preventDefault()
 
         if (!form_state.password) {
-            setMessage('⚠️ La contraseña no puede estar vacía.');
-            return;
+            setMessage('⚠️ La contraseña no puede estar vacía.')
+            return
         }
 
         if (!reset_token) {
-            setMessage('❌ Error: Token no válido.');
-            return;
+            setMessage('❌ Error: Token no válido.')
+            return
         }
 
         setLoading(true);
@@ -39,24 +39,24 @@ const ResetPasswordScreen = () => {
                 body: JSON.stringify(form_state)
             });
 
-            const data = await res.json();
-            console.log('Respuesta del servidor:', data);
+            const data = await res.json()
+            console.log('Respuesta del servidor:', data)
 
             if (res.ok) {
-                setMessage('✅ Contraseña cambiada con éxito. Ahora puedes iniciar sesión.');
+                setMessage('✅ Contraseña cambiada con éxito. Ahora puedes iniciar sesión.')
             } else {
-                setMessage(`❌ Error: ${data.message || 'No se pudo cambiar la contraseña.'}`);
+                setMessage(`❌ Error: ${data.message || 'No se pudo cambiar la contraseña.'}`)
             }
 
         } catch (error) {
             console.error('Error en la solicitud:', error);
-            setMessage('❌ Error de conexión. Inténtalo nuevamente.');
+            setMessage('❌ Error de conexión. Inténtalo nuevamente.')
         }
-        setLoading(false);
+        setLoading(false)
     }
 
     const handleGoHome = () => {
-        navigate('/'); // Navega a la página de inicio
+        navigate('/')
     }
 
     return (

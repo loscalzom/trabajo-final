@@ -4,9 +4,9 @@ import ENVIROMENT from '../utils/constants/enviroment';
 import '../css/registerScreen.css';
 
 const RegisterScreen = () => {
-    const { form_state, handleChangeInput } = useForm({ username: "", email: "", password: "" });
-    const [successMessage, setSuccessMessage] = useState(''); // Estado para el mensaje de éxito
-    const [errorMessage, setErrorMessage] = useState(''); // Estado para el mensaje de error
+    const { form_state, handleChangeInput } = useForm({ username: "", email: "", password: "" })
+    const [successMessage, setSuccessMessage] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
 
     const handleSubmitForm = async (event) => {
         event.preventDefault();
@@ -18,29 +18,29 @@ const RegisterScreen = () => {
                 },
                 body: JSON.stringify(form_state)
             });
-            const data = await res.json();
-            console.log(data);
+            const data = await res.json()
+            console.log(data)
 
             if (res.ok) {
-                // El backend envió correctamente el verificationToken
-                console.log("Verification token recibido:", data.verificationToken);
+                
+                console.log("Verification token recibido:", data.verificationToken)
 
-                setSuccessMessage('✅ Registro exitoso. Por favor, revisa tu correo electrónico para verificar tu cuenta.');
-                setErrorMessage('');
+                setSuccessMessage('✅ Registro exitoso. Por favor, revisa tu correo electrónico para verificar tu cuenta.')
+                setErrorMessage('')
             } else {
                 switch (data.message) {
                     case 'Email user already exists':
-                        setErrorMessage('❌ Error: El correo electrónico ya está registrado.');
+                        setErrorMessage('❌ Error: El correo electrónico ya está registrado.')
                         break;
                     default:
-                        setErrorMessage(`❌ Error: ${data.message || 'No se pudo completar el registro.'}`);
-                        break;
+                        setErrorMessage(`❌ Error: ${data.message || 'No se pudo completar el registro.'}`)
+                        break
                 }
             }
         } catch (error) {
-            console.error("Error al crear usuario", error);
-            setErrorMessage('❌ Error al crear usuario. Por favor, intenta nuevamente.');
-            setSuccessMessage('');
+            console.error("Error al crear usuario", error)
+            setErrorMessage('❌ Error al crear usuario. Por favor, intenta nuevamente.')
+            setSuccessMessage('')
         }
     }
 
@@ -48,17 +48,17 @@ const RegisterScreen = () => {
         username: [],
         email: [],
         password: []
-    };
+    }
 
     // Validaciones de los campos del formulario
-    form_state.email && form_state.email.length > 30 && errores.email.push("El límite de caracteres es 30");
-    form_state.email && form_state.email.length < 5 && errores.email.push("El mínimo de caracteres es 5");
+    form_state.email && form_state.email.length > 30 && errores.email.push("El límite de caracteres es 30")
+    form_state.email && form_state.email.length < 5 && errores.email.push("El mínimo de caracteres es 5")
 
-    form_state.password && form_state.password.length > 30 && errores.password.push("El máximo de caracteres es 30");
-    form_state.password && form_state.password.length < 5 && errores.password.push("El mínimo de caracteres es 5");
+    form_state.password && form_state.password.length > 30 && errores.password.push("El máximo de caracteres es 30")
+    form_state.password && form_state.password.length < 5 && errores.password.push("El mínimo de caracteres es 5")
 
-    form_state.username && form_state.username.length > 30 && errores.username.push("El límite de caracteres es 30");
-    form_state.username && form_state.username.length < 5 && errores.username.push("El mínimo de caracteres es 5");
+    form_state.username && form_state.username.length > 30 && errores.username.push("El límite de caracteres es 30")
+    form_state.username && form_state.username.length < 5 && errores.username.push("El mínimo de caracteres es 5")
 
     return (
         <div>

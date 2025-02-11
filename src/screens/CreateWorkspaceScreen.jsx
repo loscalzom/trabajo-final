@@ -9,9 +9,6 @@ import '../css/createWorkspaceScreen.css'
 const CreateWorkspaceScreen = () => {
     const navigate = useNavigate()
     const {handleChangeInput, form_state} = useForm({name: ''})
-
-
-
     
     const handleCreateWorkspace = async (event) =>{
         event.preventDefault()

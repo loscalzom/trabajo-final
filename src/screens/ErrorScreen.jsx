@@ -40,6 +40,4 @@ console.log(title)
     )
 }
 
-
-
 export default ErrorScreen

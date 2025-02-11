@@ -6,21 +6,21 @@ import { AuthContext } from '../Context/AuthContext';
 import '../css/loginScreen.css';
 
 const LoginScreen = () => {
-    const { login, isAuthenticatedState } = useContext(AuthContext);
-    const navigate = useNavigate();
-    const { form_state, handleChangeInput } = useForm({ email: "", password: "" });
+    const { login, isAuthenticatedState } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const { form_state, handleChangeInput } = useForm({ email: "", password: "" })
 
-    const [errorMessage, setErrorMessage] = useState(''); // Estado para el mensaje de error
+    const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(() => {
-        const url = new URLSearchParams(window.location.search);
+        const url = new URLSearchParams(window.location.search)
         if (url.get("verified")) {
-            alert("Cuenta verificada");
+            alert("Cuenta verificada")
         }
-    }, []); // Se ejecuta solo una vez, cuando el componente se monta
+    }, [])
 
     const handleSubmitForm = async (event) => {
-        event.preventDefault();
+        event.preventDefault()
         try {
             const res = await fetch(ENVIROMENT.API_URL + "/api/auth/login", {
                 method: "POST",
@@ -29,38 +29,38 @@ const LoginScreen = () => {
                 },
                 body: JSON.stringify(form_state)
             });
-            const data = await res.json();
+            const data = await res.json()
 
-            console.log("Datos recibidos de la API:", data);
+            console.log("Datos recibidos de la API:", data)
 
             if (data.data && data.data.access_token) {
                 const userData = data.data.user_info;
-                const workspaceData = data.data.workspace;
+                const workspaceData = data.data.workspace
 
-                console.log("User data:", userData);
-                console.log("Workspace data:", workspaceData);
-                console.log("Datos completos de la respuesta:", data.data);
+                console.log("User data:", userData)
+                console.log("Workspace data:", workspaceData)
+                console.log("Datos completos de la respuesta:", data.data)
 
                 if (userData && workspaceData) {
-                    sessionStorage.setItem('user', JSON.stringify(userData));
-                    sessionStorage.setItem('workspace', JSON.stringify(workspaceData));
+                    sessionStorage.setItem('user', JSON.stringify(userData))
+                    sessionStorage.setItem('workspace', JSON.stringify(workspaceData))
                 } else {
-                    console.error("Error: userData o workspaceData son undefined");
+                    console.error("Error: userData o workspaceData son undefined")
                 }
 
-                sessionStorage.setItem('token', data.data.access_token);
-                console.log('Token guardado:', sessionStorage.getItem('token'));
-                console.log('User guardado:', sessionStorage.getItem('user'));
-                console.log('Workspace guardado:', sessionStorage.getItem('workspace'));
+                sessionStorage.setItem('token', data.data.access_token)
+                console.log('Token guardado:', sessionStorage.getItem('token'))
+                console.log('User guardado:', sessionStorage.getItem('user'))
+                console.log('Workspace guardado:', sessionStorage.getItem('workspace'))
 
-                login(data.data.access_token, userData, workspaceData);
+                login(data.data.access_token, userData, workspaceData)
                 navigate("/home");
             } else {
-                setErrorMessage("Error al iniciar sesión. Por favor, verifica tu correo y contraseña."); // Mensaje de error más claro para el usuario
+                setErrorMessage("Error al iniciar sesión. Por favor, verifica tu correo y contraseña.")
             }
 
         } catch (error) {
-            setErrorMessage("Error al iniciar sesión. Por favor, verifica tu correo y contraseña."); // Mensaje de error más claro para el usuario
+            setErrorMessage("Error al iniciar sesión. Por favor, verifica tu correo y contraseña.")
             console.error("Error al loguear", error);
         }
     }
@@ -70,11 +70,11 @@ const LoginScreen = () => {
         password: []
     };
 
-    form_state.email && form_state.email.length > 30 && errores.email.push("El límite de caracteres es 30");
-    form_state.email && form_state.email.length < 5 && errores.email.push("El mínimo de caracteres es 5");
+    form_state.email && form_state.email.length > 30 && errores.email.push("El límite de caracteres es 30")
+    form_state.email && form_state.email.length < 5 && errores.email.push("El mínimo de caracteres es 5")
 
-    form_state.password && form_state.password.length > 30 && errores.password.push("El máximo de caracteres es 30");
-    form_state.password && form_state.password.length < 5 && errores.password.push("El mínimo de caracteres es 5");
+    form_state.password && form_state.password.length > 30 && errores.password.push("El máximo de caracteres es 30")
+    form_state.password && form_state.password.length < 5 && errores.password.push("El mínimo de caracteres es 5")
 
     return (
         <div className='login-container'>
@@ -100,7 +100,7 @@ const LoginScreen = () => {
                 <Link to="/forgot-password">Olvidé mi contraseña</Link>
             </form>
         </div>
-    );
+    )
 }
 
-export default LoginScreen;
+export default LoginScreen

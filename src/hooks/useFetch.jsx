@@ -25,8 +25,7 @@ export const useFetch = (api_url, params, dependencies = []) =>{
         },
         [...dependencies]
     )
-    
-    
+       
 
     return {loading, data, error}
 }

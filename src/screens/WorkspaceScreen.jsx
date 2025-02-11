@@ -9,25 +9,25 @@ import CreateChannelForm from '../Components/CreateChannelForm';
 import '../css/workspaceScreen.css';
 
 const WorkspaceScreen = () => {
-    const { workspace_id , channel_id} = useParams();
-    console.log("Workspace ID:", workspace_id);
-    const { setWorkspace } = useContext(AuthContext); 
+    const { workspace_id , channel_id} = useParams()
+    console.log("Workspace ID:", workspace_id)
+    const { setWorkspace } = useContext(AuthContext)
 
-    const [channels, setChannels] = useState([]);
+    const [channels, setChannels] = useState([])
 
     const { data: channels_data, error: channels_error, loading: channels_loading } = useFetch(
         `${ENVIROMENT.API_URL}/api/channel/${workspace_id}`, 
         { method: "GET", headers: getAuthenticatedHeaders() }
-    );
+    )
  
     useEffect(() => {
         
 
         if (channels_data?.data?.channels) {
-            console.log("Asignando canales:", channels_data.data.channels);
-            setChannels(channels_data.data.channels);
+            console.log("Asignando canales:", channels_data.data.channels)
+            setChannels(channels_data.data.channels)
         }
-    }, [channels_data]);
+    }, [channels_data])
 
     const handleWorkspaceClick = async (workspace_id) => {
         try {
@@ -35,19 +35,19 @@ const WorkspaceScreen = () => {
                 method: "GET",
                 headers: getAuthenticatedHeaders(),
             });
-            const data = await response.json();
+            const data = await response.json()
             if (data.ok) {
                 setWorkspace(data.data);
-                sessionStorage.setItem("workspace", JSON.stringify(data.data));
+                sessionStorage.setItem("workspace", JSON.stringify(data.data))
             }
         } catch (err) {
-            console.error("Error al obtener el workspace:", err);
+            console.error("Error al obtener el workspace:", err)
         }
-    };
+    }
 
     const handleNewChannel = (newChannel) => {
         console.log("Nuevo canal recibido:", newChannel)
-        setChannels([...channels, newChannel]);
+        setChannels([...channels, newChannel])
     };
 
     return (
@@ -75,7 +75,7 @@ const WorkspaceScreen = () => {
 
 const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelCreated }) => {
 
-    console.log("Lista de canales en ChannelsList:", channel_list);
+    console.log("Lista de canales en ChannelsList:", channel_list)
     return (
         <div className='channels-container'>
             <div className='channels-list-container'>
@@ -98,7 +98,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
 
             <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
         </div>
-    );
-};
+    )
+}
 
 export default WorkspaceScreen;

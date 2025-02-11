@@ -13,15 +13,7 @@ import WorkspaceScreen from "./screens/WorkspaceScreen"
 import "./css/global.css"
 import Channel from "./Components/Channel"
 
-
-
-
-
 const App = () => {
-
-
-
-
   return (
     <div>
       <Routes>
@@ -31,15 +23,12 @@ const App = () => {
         <Route path="/register" element={<RegisterScreen />} ></Route>
         <Route path="/error" element={<ErrorScreen />} ></Route>
         <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
-
         <Route path='/reset-password' element={<ResetPasswordScreen />} />
         <Route element={<ProtectedRoute />} >
-        <Route path="/home" element={<HomeScreen />}/>
-        <Route path="/workspace/new" element={<CreateWorkspaceScreen />} />
-       <Route path="/workspace/:workspace_id" element={<WorkspaceScreen />} />
-        
-        <Route path="/workspace/:workspace_id/:channel_id" element={<Channel />} />
-       
+          <Route path="/home" element={<HomeScreen />} />
+          <Route path="/workspace/new" element={<CreateWorkspaceScreen />} />
+          <Route path="/workspace/:workspace_id" element={<WorkspaceScreen />} />
+          <Route path="/workspace/:workspace_id/:channel_id" element={<Channel />} />
         </Route>
 
       </Routes>
