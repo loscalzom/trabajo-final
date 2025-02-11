@@ -20,7 +20,7 @@ const WorkspaceScreen = () => {
         `${ENVIROMENT.API_URL}/api/channel/${workspace_id}`, 
         { method: "GET", headers: getAuthenticatedHeaders() }
     );
-
+ 
     useEffect(() => {
         
 
