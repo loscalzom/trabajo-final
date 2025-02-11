@@ -12,6 +12,8 @@ const WorkspaceScreen = () => {
     const { workspace_id , channel_id} = useParams();
     console.log("Workspace ID:", workspace_id);
     const { setWorkspace } = useContext(AuthContext); 
+
+    console.log("Canales recibidos:", channels_data);
     const [channels, setChannels] = useState([]);
 
     const { data: channels_data, error: channels_error, loading: channels_loading } = useFetch(
@@ -20,7 +22,7 @@ const WorkspaceScreen = () => {
     );
 
     useEffect(() => {
-        console.log("Canales recibidos:", channels_data);
+        
 
         if (channels_data?.data?.channels) {
             console.log("Asignando canales:", channels_data.data.channels);
