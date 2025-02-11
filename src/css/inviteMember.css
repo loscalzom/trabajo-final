@@ -57,7 +57,7 @@ input {
     margin: 0 auto;
 }
 
-button {
+.invite-member-button {
     padding: 8px 12px;
     background-color: #da4834;
     color: white;

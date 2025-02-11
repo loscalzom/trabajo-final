@@ -72,7 +72,7 @@ const InviteMember = () => {
           Correo electrónico:
           <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
         </label>
-        <button type="submit">Invitar</button>
+        <button className="invite-member-button" type="submit">Invitar</button>
       </form>
 
       {message && <p className="message-success">{message}</p>}
