@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import  "../css/createNewChannel.css" 
 const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
     const [channelName, setChannelName] = useState("")
 
@@ -47,7 +47,7 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
     };
 
     return (
-        <div style={{ marginBottom: "16px" }}>
+        <div className="create-new-channel-container">
             <input
                 type="text"
                 value={channelName}
