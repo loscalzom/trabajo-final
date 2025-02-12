@@ -97,7 +97,9 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
             </div>
 
             <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
+            <button className='volver' onClick={() => navigate(-1)}>Volver</button>
         </div>
+        
     )
 }
 
