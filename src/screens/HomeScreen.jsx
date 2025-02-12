@@ -17,7 +17,7 @@ const HomeScreen = () => {
    console.log(workspace_response)
   return (
     <div className="home-container">
-        <h1>Bienvenido al Chat de Amigos</h1>
+        <h1>BIENVENIDO AL CHAT DE AMIGOS</h1>
         <div className='workspace-container'>
             <h2>Tus grupos de amigos</h2>
             <div>
