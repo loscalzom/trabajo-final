@@ -55,6 +55,7 @@ const CreateChannelForm = ({ workspace_id, onChannelCreated }) => {
                 placeholder="Nuevo tema"
             />
             <button className="button-create-channel" onClick={handleCreateChannel}>Crear tema</button>
+            <button className='volver' onClick={() => navigate(-1)}>Volver</button>
         </div>
     );
 };
