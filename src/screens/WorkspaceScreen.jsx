@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link,   useNavigate,   useParams } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import ENVIROMENT from '../utils/constants/enviroment';
 import { getAuthenticatedHeaders } from '../fetching/customHeaders';
@@ -75,6 +75,8 @@ const WorkspaceScreen = () => {
 
 const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelCreated }) => {
 
+    const navigate = useNavigate()
+
     console.log("Lista de canales en ChannelsList:", channel_list)
     return (
         <div className='channels-container'>
@@ -97,7 +99,7 @@ const ChannelsList = ({ channel_list, workspace_id, onWorkspaceClick, onChannelC
             </div>
 
             <CreateChannelForm workspace_id={workspace_id} onChannelCreated={onChannelCreated} />
-            <button className='volver' onClick={() => navigate(-1)}>Volver</button>
+            <button className='go-back' onClick={() => navigate(-1)}>Volver</button>
         </div>
         
     )

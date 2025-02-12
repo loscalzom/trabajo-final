@@ -111,7 +111,9 @@ button:hover {
     background-color: #b52d1e;
 
 }
-
+button.go-back {
+    margin-top: 0    
+};
 
 
 .messages-container {
