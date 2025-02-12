@@ -93,12 +93,12 @@ p {
 }
 @media (max-width: 550px) {
     .invite-member-title , .invite-member-advice {
-        font-size: 0.9rem; 
+        font-size: 1rem; 
     }
 }
 
 @media (max-width: 375px) {
     .invite-member-title , .invite-member-advice {
-        font-size: 0.7rem; 
+        font-size: 0.9rem; 
     }
 }

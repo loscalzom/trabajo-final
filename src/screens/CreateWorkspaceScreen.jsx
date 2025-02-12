@@ -37,6 +37,7 @@ const CreateWorkspaceScreen = () => {
             </div>
             <button type='submit'>Crear</button>
         </form>
+        <button className='volver' onClick={() => navigate(-1)}>Volver</button>
     </div>
   )
 }
